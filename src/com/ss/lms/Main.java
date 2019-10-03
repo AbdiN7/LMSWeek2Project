@@ -36,6 +36,8 @@ public class Main {
 
 			
 			if (input == 1) {
+				System.out.println("                      ____________________ ");
+				System.out.println("                     |___Libararian Menu__|");
 				System.out.println("                     |____________________|");
 				System.out.println("                     |[ 1) Enter Branch  ]|");
 				System.out.println("                     |                    |");
@@ -47,7 +49,7 @@ public class Main {
 				} catch (InputMismatchException e) {
 					System.out.println("Not the right format");
 				}
-				System.out.println("|____________________|");
+				System.out.println("                     |____________________|");
 				
 			} else if (input == 2) {
 
@@ -58,6 +60,9 @@ public class Main {
 			} else {
 				System.out.println("Not a choice!");
 			}
+			
+			System.out.println("\n");
+			System.out.println(" ________________________________________________________________________________");
 
 		}
 		System.out.println("|Thank you have a day|");
