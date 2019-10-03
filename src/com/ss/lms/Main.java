@@ -1,5 +1,8 @@
 package com.ss.lms;
 
+
+import com.ss.tools.*;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,7 +13,7 @@ public class Main {
 		int input = 0;
 
 		System.out.println("\n");
-		System.out.println(" ________________________________________________________________________________");
+		System.out.println(ConsoleColors.GREEN_BOLD+" ________________________________________________________________________________");
 		System.out.println("|________________________________________________________________________________|");
 		System.out.println("| Welcome to the GCIT Libary Management System. Which category of a user are you |");
 		System.out.println("|________________________________________________________________________________|");
@@ -24,7 +27,7 @@ public class Main {
 			System.out.println("|[ 3) Borrower      ]|                                                           |");
 			System.out.println("|                    |                                                           |");
 			System.out.println("|[ 0) Quit          ]|                                 Version 0.0.1e (C) 1985   |");
-			System.out.println("|____________________|___________________________________________________________|");
+			System.out.println("|____________________|___________________________________________________________|"+ConsoleColors.RESET);
 			System.out.print("| User Select->");
 
 			try {
@@ -33,6 +36,7 @@ public class Main {
 				System.out.println("Not the right format");
 			}
 			System.out.println("|____________________|");
+			
 
 			
 			if (input == 1) {
@@ -61,8 +65,10 @@ public class Main {
 				System.out.println("Not a choice!");
 			}
 			
+			
+			
 			System.out.println("\n");
-			System.out.println(" ________________________________________________________________________________");
+			System.out.println(ConsoleColors.GREEN_BOLD+" ________________________________________________________________________________");
 
 		}
 		System.out.println("|Thank you have a day|");
