@@ -25,10 +25,6 @@ public class AdminServices {
     {
 
     }
-
-    //////////////
-//    public void listBorrowers()
-
     public void deleteBorrower(Integer cardNo)
     {
         try{

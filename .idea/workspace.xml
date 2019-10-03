@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b430d3d-8bc9-4e5c-a03b-8f85c22d6f60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ss/lms/Services/AdminServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ss/lms/secret/ServerCred.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMSWeek2Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LMSWeek2Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ss/lms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss/lms/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss/lms/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss/lms/Model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ss/lms/Services/AdminServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss/lms/Services/AdminServices.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +158,7 @@
       <workItem from="1570126033077" duration="4431000" />
       <workItem from="1570131047057" duration="1610000" />
       <workItem from="1570133428621" duration="4918000" />
-      <workItem from="1570142664847" duration="2508000" />
+      <workItem from="1570142664847" duration="2815000" />
     </task>
     <servers />
   </component>
