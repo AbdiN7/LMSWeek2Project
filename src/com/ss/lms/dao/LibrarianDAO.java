@@ -1,9 +1,9 @@
-package com.ss.lms.Dao;
+package com.ss.lms.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ss.lms.Model.LibraryPOJO;
+import com.ss.lms.model.LibraryPOJO;
 
 public class LibrarianDAO {
 

@@ -1,5 +1,6 @@
 package com.ss.lms.dao;
 
+import com.ss.lms.model.Author;
 import com.ss.lms.model.Borrower;
 import com.ss.lms.secret.Url;
 
@@ -10,11 +11,11 @@ import java.sql.SQLException;
 
 public class AdminDao <T> {
     private Url myUrl = new Url();
-    public void AdminDao(Borrower borrower)
+    public AdminDao(Borrower borrower)
     {
 
-
     }
+
     public  void deleteBorrower(int cardNo) throws SQLException
     {
         Connection connection = DriverManager.getConnection(myUrl.getUrl());
@@ -34,6 +35,10 @@ public class AdminDao <T> {
             st.setString(4,phone);
             st.executeUpdate();
             connection.close();
+    }
+    public void addAuthor(Author author)
+    {
+
     }
     
 
