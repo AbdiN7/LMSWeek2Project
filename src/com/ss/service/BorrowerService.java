@@ -33,14 +33,19 @@ public class BorrowerService {
 	}
 	
 	
-	public void checkLoginID(int borrowerCardNo) {
+	
+	
+	public boolean checkLoginID(int borrowerCardNo) {
+		boolean checkId = false;
 		try {
-			borrowrDao.checkCardNo(borrowerCardNo);
+			checkId =  borrowrDao.checkCardNo(borrowerCardNo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return checkId;
 	}
+	
 	
 
 }

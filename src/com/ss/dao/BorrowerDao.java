@@ -27,20 +27,25 @@ public class BorrowerDao {
 		int count = 1;
 		PreparedStatement  stmt = connection.prepareStatement("select * from tbl_library_branch");
 		ResultSet rs = stmt.executeQuery();
+		System.out.println("|                Pick the Branch you want to check out from                      | ");
+		System.out.println("|________________________________________________________________________________|");
 		while(rs.next())
 		{
-			System.out.println(count+")"+rs.getString(2));
+			System.out.println(String.format("%-20s","|"+count+")"+rs.getString(2)+", "+rs.getString(3)));
 			count++;
 		}
+		System.out.println("|0) Quit to previous                                                             |");
+		System.out.println("|________________________________________________________________________________|");
 	}
 	
 	public boolean checkCardNo(int borrowerCardNo) throws SQLException {
 		System.out.println("Checking ID against our records....");
-		PreparedStatement  stmt = connection.prepareStatement("select * from tbl_borrower");
+		PreparedStatement  stmt = connection.prepareStatement("select tbl_borrower.cardNo from tbl_borrower");
 		ResultSet rs = stmt.executeQuery();
-		if(rs.next()) {
-			if(rs.getInt(1) == borrowerCardNo)
+		while(rs.next()) {
+			if(rs.getInt(1) == borrowerCardNo) {
 				return true;
+			}
 		}
 		return  false;
 		
