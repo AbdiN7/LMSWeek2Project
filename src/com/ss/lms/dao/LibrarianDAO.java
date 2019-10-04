@@ -8,14 +8,14 @@ import com.ss.lms.model.LibraryPOJO;
 public class LibrarianDAO {
 
 	
-	public List<String> viewBranches(){
+	public static List<String> viewBranches(){
 		List<String> branches = new ArrayList<>();
 		//select branchName from tbl_library_branch
 		//set to list
 		return branches;
 	}
 	
-	public LibraryPOJO getBranchInfo(int branchId) {
+	public static LibraryPOJO getBranchInfo(int branchId) {
 		
 		LibraryPOJO branch = new LibraryPOJO();
 		

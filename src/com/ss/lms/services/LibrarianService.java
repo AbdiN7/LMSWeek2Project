@@ -1,6 +1,9 @@
 package com.ss.lms.services;
 
+import java.util.List;
 import java.util.Scanner;
+
+import com.ss.lms.dao.LibrarianDAO;
 import com.ss.lms.model.LibraryPOJO;
 
 public class LibrarianService {
@@ -22,14 +25,18 @@ public class LibrarianService {
 	public void libraryTwo(Scanner scan) {
 		while(true) {
 			int options = 1;
-			//read branches from DB and list all
-			//loop through and display/count
+			
+			List<String> branches = LibrarianDAO.viewBranches();
+			for(String branch : branches) {
+				System.out.println(options + ") " + branch);
+				options ++;
+			}
 			System.out.println(options + ") Quit to previous");
-			if(validate(options, scan) == options) {
+			int selection = validate(options, scan);
+			if(selection == options) {
 				break;
 			}else {
-				LibraryPOJO branch = new LibraryPOJO();
-				//loop through and pass library obj
+				LibraryPOJO branch = LibrarianDAO.getBranchInfo(selection);
 				libraryThree(branch,scan);
 			}
 		}
