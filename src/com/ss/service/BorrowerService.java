@@ -23,6 +23,16 @@ public class BorrowerService {
 		}
 	}
 	
+	public void readBranch() {
+		try {
+			borrowrDao.readBranch();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public void checkLoginID(int borrowerCardNo) {
 		try {
 			borrowrDao.checkCardNo(borrowerCardNo);

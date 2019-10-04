@@ -22,21 +22,30 @@ public class BorrowerView {
 		while(true) {
 			
 			Main.ui.borrowerLogIn();
-			input = Main.userInput.next().charAt(0);
+			int ainput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
 			
 			if(input == '1') {
-				borrowerService.checkLoginID(input);
+				borrowerService.checkLoginID(ainput);
 				if(idFound = true)
 				{
 					Main.ui.borrowerMenu();
+					borrowerService.readBranch();
+					Main.userInput.next();
 					input = Main.userInput.next().charAt(0);
-					Main.ui.borrowerMenuBottom();
+					
+					if(input == '1') {
+						Main.ui.borrowerMenuBottom();
+					}
 				}
 				
 			}
-			else {
+			else if( input == '0') {
 				break;
+			}
+			else
+			{
+				System.out.println("Re-Enter a Valid ID");
 			}
 			
 			

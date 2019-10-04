@@ -23,6 +23,16 @@ public class BorrowerDao {
 		}
 	}
 	
+	public void readBranch() throws SQLException {
+		int count = 1;
+		PreparedStatement  stmt = connection.prepareStatement("select * from tbl_library_branch");
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next())
+		{
+			System.out.println(count+")"+rs.getString(2));
+			count++;
+		}
+	}
 	
 	public boolean checkCardNo(int borrowerCardNo) throws SQLException {
 		System.out.println("Checking ID against our records....");
