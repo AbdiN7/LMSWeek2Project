@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b430d3d-8bc9-4e5c-a03b-8f85c22d6f60" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMSWeek2Project/com/ss/lms/secret/ServerCred.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMSWeek2Project/com/ss/lms/secret/ServerCred.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMSWeek2Project/com/ss/lms/secret/Url.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMSWeek2Project/com/ss/lms/secret/Url.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss/lms/Dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss/lms/Dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss/lms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss/lms/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="2b430d3d-8bc9-4e5c-a03b-8f85c22d6f60" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +137,7 @@
       <workItem from="1570131047057" duration="1610000" />
       <workItem from="1570133428621" duration="4918000" />
       <workItem from="1570142664847" duration="8787000" />
-      <workItem from="1570152734403" duration="725000" />
+      <workItem from="1570152734403" duration="967000" />
     </task>
     <servers />
   </component>
