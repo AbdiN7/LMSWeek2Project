@@ -1,6 +1,6 @@
 package com.ss.lms.Services;
 
-import com.ss.lms.Dao.AdminDao;
+import com.ss.dao.AdminDao;
 import com.ss.lms.secret.ServerCred;
 import com.ss.lms.secret.Url;
 

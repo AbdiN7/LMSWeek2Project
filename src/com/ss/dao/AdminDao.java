@@ -1,4 +1,4 @@
-package com.ss.lms.Dao;
+package com.ss.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
