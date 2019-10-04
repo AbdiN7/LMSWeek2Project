@@ -11,13 +11,67 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="195" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="localDB@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1RfpbFthSW5P4uEN91alTqrqs4H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mysql-connector-java-8.0.17.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,6 +96,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7fcff8e1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7fcff8e1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4c047d42" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -53,11 +132,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570068073051</updated>
-      <workItem from="1570068077423" duration="266000" />
+      <workItem from="1570068077423" duration="1224000" />
+      <workItem from="1570126033077" duration="4431000" />
+      <workItem from="1570131047057" duration="1610000" />
+      <workItem from="1570133428621" duration="4918000" />
+      <workItem from="1570142664847" duration="8787000" />
+      <workItem from="1570152734403" duration="1218000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LMSWeek2Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1570131502875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
