@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class Main {
 	
-
 	
 	static UI ui = new UI();
 	static BorrowerView borrowerView = new BorrowerView();

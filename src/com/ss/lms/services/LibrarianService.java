@@ -1,11 +1,11 @@
-package com.ss.lms.Services;
+package com.ss.lms.services;
 
 import java.util.List;
 import java.util.Scanner;
 
-import com.ss.lms.Dao.LibrarianDAO;
-import com.ss.lms.Model.Book;
-import com.ss.lms.Model.LibraryPOJO;
+import com.ss.lms.dao.LibrarianDAO;
+import com.ss.lms.model.Book;
+import com.ss.lms.model.LibraryPOJO;
 
 public class LibrarianService {
 

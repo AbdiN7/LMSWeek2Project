@@ -1,9 +1,9 @@
-package com.ss.lms.Model;
+package com.ss.lms.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ss.lms.Model.Book;
+import com.ss.lms.model.Book;
 
 public class LibraryPOJO {
 
