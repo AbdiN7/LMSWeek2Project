@@ -1,9 +1,9 @@
-package com.ss.lms.dao;
+package com.ss.lms.Dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ss.lms.model.LibraryPOJO;
+import com.ss.lms.Model.LibraryPOJO;
 
 public class LibrarianDAO {
 
@@ -26,6 +26,16 @@ public class LibrarianDAO {
 		//select bookName, noOfCopies from tbl_book_copies where branchId = branchId
 		//loop through results adding them to 2 lists
 		return branch;
+	}
+	
+	public static void updateBranchInfo(int branchId, String branchName, String branchAddress) {
+		
+		//connect and update name and address at branchId
+		
+	}
+	
+	public static void addCopies(int bookId, int branchId, int newNoOfCopies) {
+		//connect and update no of copies for bookId at branchId
 	}
 	
 }
