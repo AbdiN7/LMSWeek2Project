@@ -7,6 +7,11 @@ public class BorrowerDao {
 	Connection connection = null;
 	
 	
+	/*
+	 * 
+	 * Open and close the connections when needed
+	 * 
+	 */
 	public void openConnection() throws ClassNotFoundException, SQLException {
 			System.out.println("Loading Please Wait.....");
 			Class.forName("com.mysql.jdbc.Driver");  
@@ -22,6 +27,11 @@ public class BorrowerDao {
 			System.out.println("Connection has been closed");
 		}
 	}
+	/*
+	 * 
+	 * 
+	 */
+	
 	
 	public void readBranch() throws SQLException {
 		int count = 1;
@@ -38,6 +48,13 @@ public class BorrowerDao {
 		System.out.println("|________________________________________________________________________________|");
 	}
 	
+	public void selectBranch(int choice) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("select * from tbl_libary_branch");
+		ResultSet rs = stmt.executeQuery();
+		
+	}
+	
+	
 	public boolean checkCardNo(int borrowerCardNo) throws SQLException {
 		System.out.println("Checking ID against our records....");
 		PreparedStatement  stmt = connection.prepareStatement("select tbl_borrower.cardNo from tbl_borrower");
@@ -50,6 +67,13 @@ public class BorrowerDao {
 		return  false;
 		
 	}
+	
+	public void readBooks() throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("select * from tbl_libary_branch");
+		ResultSet rs = stmt.executeQuery();
+	}
+	
+	
 
 	
 	/*

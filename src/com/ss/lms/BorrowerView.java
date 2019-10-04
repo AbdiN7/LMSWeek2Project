@@ -39,6 +39,7 @@ public class BorrowerView {
 						borrowerService.readBranch();
 						Main.ui.borrowerMenuOneBottome();
 						input = Main.userInput.next().charAt(0);
+						
 						if(input == '0') {
 							break;
 						}
