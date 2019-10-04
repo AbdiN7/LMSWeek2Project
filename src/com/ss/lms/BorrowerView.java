@@ -15,7 +15,7 @@ public class BorrowerView {
 		BorrowerService borrowerService = new BorrowerService();
 		
 		borrowerService.OpenConnection();
-		
+		//ok
 		char input = 0;
 		boolean idFound = false;
 		
