@@ -1,18 +1,16 @@
 package com.ss.lms.Services;
 
+import com.ss.lms.Dao.AdminDao;
 import com.ss.lms.secret.ServerCred;
+import com.ss.lms.secret.Url;
 
+import java.io.PrintWriter;
 import java.sql.*;
 
 public class AdminServices {
+    private Url myUrl = new Url();
+    private AdminDao adminDao = new AdminDao();
 
-    private String getUrl()
-    {
-        ServerCred mySecret = new ServerCred();
-        return ("jdbc:mysql://localhost:3306/library?" + "user=" +
-                mySecret.getServerUser() + "&password="+
-                mySecret.getServerPWord()+"&serverTimezone=EST5EDT");
-    }
     public void deleteBook()
     {
 
@@ -28,19 +26,18 @@ public class AdminServices {
     public void deleteBorrower(Integer cardNo)
     {
         try{
-            Connection connection = DriverManager.getConnection(getUrl());
-            PreparedStatement st = connection.prepareStatement("DELETE FROM tbl_borrower WHERE cardNo = ? ");
-            st.setString(1, String.valueOf(cardNo));
-            st.executeUpdate();
-
-            connection.close();
+         adminDao.deleteBorrower(cardNo);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public  void addBorrower()
+    public  void addBorrower(int cardNo, String name, String address, String phone)
     {
-
+        try{
+        adminDao.addBorrower(cardNo,name,address,phone);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public void updateBorrower()
     {
