@@ -1,10 +1,10 @@
 package com.ss.lms.Model;
 
-import com.ss.lms.Services.AdminServices;
-
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.ss.service.AdminServices;
 
 
 public class Admin {

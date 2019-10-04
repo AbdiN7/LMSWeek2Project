@@ -1,4 +1,4 @@
-package com.ss.lms.Services;
+package com.ss.service;
 
 import com.ss.dao.AdminDao;
 import com.ss.lms.secret.ServerCred;
