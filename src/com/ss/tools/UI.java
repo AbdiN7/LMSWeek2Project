@@ -97,6 +97,11 @@ public class UI {
     //-----------------------------------------------
 	
 	
+	public void borrowerLogIn() {
+		System.out.print(ConsoleColors.PURPLE_BOLD);
+		System.out.println(" ________________________________________________________________________________");
+		System.out.print("|Login with Card #:");
+	}
 	public void borrowerMenu() {
 		System.out.print(ConsoleColors.PURPLE_BOLD);
 		System.out.println(" ________________________________________________________________________________");
@@ -107,9 +112,11 @@ public class UI {
 		System.out.println("| \\ \\_____\\\\ \\_____\\\\ \\_\\ \\_\\\\ \\_\\ \\_\\\\ \\_____\\\\ \\__/\".~\\_\\\\ \\_____\\\\ \\_\\ \\_\\    |");
 		System.out.println("|  \\/_____/ \\/_____/ \\/_/ /_/ \\/_/ /_/ \\/_____/ \\/_/   \\/_/ \\/_____/ \\/_/ /_/    |");
 		System.out.println("|                                                                                |");
-		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[ Enter in your Card ID]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                              Version 0.0.1e (C) 1985  |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[1) Check out Book]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                       |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[2) Return a Book ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                       |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[3) Quit to Main  ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                              Version 0.0.1e (C) 1985  |");
 		System.out.println("|________________________________________________________________________________|");
-		System.out.print("|#");
+		System.out.print("|Input->");
 	}
 	public void borrowerMenuBottom() {
 		System.out.println("|________________________________________________________________________________|"+ConsoleColors.RESET);

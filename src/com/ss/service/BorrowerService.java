@@ -10,7 +10,17 @@ public class BorrowerService {
 	
 	
 	public void OpenConnection() {
-		borrowrDao.openConnection();
+		try {
+			try {
+				borrowrDao.openConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void checkLoginID(int borrowerCardNo) {

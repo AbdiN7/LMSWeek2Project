@@ -12,22 +12,26 @@ public class BorrowerView {
 	
 	public void menuBorrower() throws SQLException {
 		
-		BorrowerService bs = new BorrowerService();
+		BorrowerService borrowerService = new BorrowerService();
 		
-		bs.OpenConnection();
+		borrowerService.OpenConnection();
 		
 		char input = 0;
-		boolean fuck = false;
+		boolean idFound = false;
+		
 		while(true) {
 			
-			Main.ui.borrowerMenu();
+			Main.ui.borrowerLogIn();
 			input = Main.userInput.next().charAt(0);
 			Main.ui.borrowerMenuBottom();
+			
 			if(input == '1') {
-				bs.checkLoginID(input);
-				if(fuck = true)
+				borrowerService.checkLoginID(input);
+				if(idFound = true)
 				{
-					System.out.println("fuck");
+					Main.ui.borrowerMenu();
+					input = Main.userInput.next().charAt(0);
+					Main.ui.borrowerMenuBottom();
 				}
 				
 			}

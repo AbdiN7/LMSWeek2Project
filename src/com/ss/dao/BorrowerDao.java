@@ -7,15 +7,10 @@ public class BorrowerDao {
 	Connection connection = null;
 	
 	
-	public void openConnection() {
-		try {
+	public void openConnection() throws ClassNotFoundException, SQLException {
 			System.out.println("Loading Please Wait.....");
 			Class.forName("com.mysql.jdbc.Driver");  
 			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/library?verifyServerCertificate=false&useSSL=true&requireSSL=true","root","pass");  
-		}
-		catch(Exception e) {
-			System.out.println(e);
-		}
 	}
 	
 	public void closeConnection() throws SQLException {
