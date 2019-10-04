@@ -1,12 +1,20 @@
-package com.ss.lms.Dao;
+package com.ss.lms.dao;
+
+import com.ss.lms.model.Borrower;
+import com.ss.lms.secret.Url;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AdminDao {
+public class AdminDao <T> {
+    private Url myUrl = new Url();
+    public void AdminDao(Borrower borrower)
+    {
 
+
+    }
     public  void deleteBorrower(int cardNo) throws SQLException
     {
         Connection connection = DriverManager.getConnection(myUrl.getUrl());
@@ -17,7 +25,6 @@ public class AdminDao {
     }
     public  void addBorrower(int cardNo, String name, String address, String phone) throws SQLException
     {
-
             Connection connection = DriverManager.getConnection(myUrl.getUrl());
             PreparedStatement st = connection.prepareStatement("insert into tbl_borrower (cardNo, name, address, phone)" +
                     "VALUES (?,?,?,?)");
