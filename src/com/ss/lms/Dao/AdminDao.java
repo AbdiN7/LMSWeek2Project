@@ -17,6 +17,7 @@ public class AdminDao {
     }
     public  void addBorrower(int cardNo, String name, String address, String phone) throws SQLException
     {
+
             Connection connection = DriverManager.getConnection(myUrl.getUrl());
             PreparedStatement st = connection.prepareStatement("insert into tbl_borrower (cardNo, name, address, phone)" +
                     "VALUES (?,?,?,?)");
@@ -27,5 +28,6 @@ public class AdminDao {
             st.executeUpdate();
             connection.close();
     }
+    
 
 }
