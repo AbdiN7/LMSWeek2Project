@@ -1,10 +1,11 @@
-package com.ss.lms.services;
+package com.ss.lms.Services;
 
 import java.util.List;
 import java.util.Scanner;
 
-import com.ss.lms.dao.LibrarianDAO;
-import com.ss.lms.model.LibraryPOJO;
+import com.ss.lms.Dao.LibrarianDAO;
+import com.ss.lms.Model.Book;
+import com.ss.lms.Model.LibraryPOJO;
 
 public class LibrarianService {
 
@@ -77,20 +78,21 @@ option:	while(true) {
 		if(!(address.equalsIgnoreCase("n/a"))){
 			branch.setBranchAddress(address);
 		}
-		//update db
+		LibrarianDAO.updateBranchInfo(branch.getBranchId(), branch.getBranchName(), branch.getBranchAddress());
 	}
 	
 	public void libraryAddBooks(LibraryPOJO branch, Scanner scan) {
 		int count = 1;
-		for(String title : branch.getBookTitles()) {
-			System.out.println(count + ") " + title);
+		for(Book book : branch.getBooks()) {
+			System.out.println(count + ") " + book.getBookTitle());
 			count ++;
 		}
 		count ++;
 		System.out.println(count + ") Cancel");
 		int selection = validate((count), scan);
 		if(!(selection == count)) {
-			int copies = branch.getNoOfCopies().get(selection-1);
+			selection --;
+			int copies = branch.getNoOfCopies(selection);
 			System.out.println("Existing number of copies: " + copies);
 			System.out.println("Enter number of new copies: ");
 			while(!scan.hasNextInt()) {
@@ -98,9 +100,9 @@ option:	while(true) {
 				System.out.println("Please enter a number!");
 			}
 			copies += scan.nextInt();
-			branch.setNoOfCopies(selection-1, copies);
+			branch.setNoOfCopies(selection, copies);
 		}
-		//update db
+		LibrarianDAO.addCopies(branch.getBooks().get(selection).getBookId(), branch.getBranchId(), branch.getNoOfCopies(selection));
 	}
 	
 	public int validate(int numberOfResponses, Scanner scan){
