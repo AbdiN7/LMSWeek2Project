@@ -1,19 +1,23 @@
 package com.ss.lms;
 
+import com.ss.dao.*;
 import com.ss.tools.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
 
 public class Main {
 	
+	
+	
 	static UI ui = new UI();
 	static BorrowerView borrowerView = new BorrowerView();
 	
 	public static Scanner userInput = new Scanner(System.in);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
 		
 		char input = ' ';
