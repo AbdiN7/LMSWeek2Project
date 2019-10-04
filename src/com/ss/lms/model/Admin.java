@@ -1,6 +1,6 @@
-package com.ss.lms.Model;
+package com.ss.lms.model;
 
-import com.ss.lms.Services.AdminServices;
+import com.ss.lms.services.AdminServices;
 
 import java.sql.*;
 import java.util.logging.Level;

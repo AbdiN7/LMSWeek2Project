@@ -1,4 +1,4 @@
-package com.ss.lms.Model;
+package com.ss.lms.model;
 
 public class Borrower {
 	
