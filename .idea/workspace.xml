@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="2b430d3d-8bc9-4e5c-a03b-8f85c22d6f60" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="2b430d3d-8bc9-4e5c-a03b-8f85c22d6f60" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,12 +116,21 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+<<<<<<< Updated upstream
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7fcff8e1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7fcff8e1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4c047d42" type="9fbbdea:ServiceModel$ServiceNode" />
+=======
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2b4c894b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2b4c894b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@26f30a95" type="9fbbdea:ServiceModel$ServiceNode" />
+>>>>>>> Stashed changes
             </path>
           </expand>
           <select />
@@ -137,7 +153,12 @@
       <workItem from="1570131047057" duration="1610000" />
       <workItem from="1570133428621" duration="4918000" />
       <workItem from="1570142664847" duration="8787000" />
+<<<<<<< Updated upstream
       <workItem from="1570152734403" duration="1218000" />
+=======
+      <workItem from="1570152734403" duration="1359000" />
+      <workItem from="1570154545104" duration="13000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
