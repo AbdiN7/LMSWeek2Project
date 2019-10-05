@@ -8,11 +8,9 @@ import java.sql.SQLException;
 
 
 public class AdminBorrowerDao implements AdminDao<Borrower, Connection> {
-    private DataConnector dataConnector = new DataConnector();
 
     @Override
     public void add(Borrower borrower, Connection connection) throws SQLException {
-        connection = dataConnector.getCurrConnection();
         PreparedStatement st = connection.prepareStatement("insert into tbl_borrower (cardNo, name, address, phone)" +
                 "VALUES (?,?,?,?)");
         st.setString(1, String.valueOf(borrower.getBorrowerCardNumber()));
@@ -28,4 +26,21 @@ public class AdminBorrowerDao implements AdminDao<Borrower, Connection> {
         st.setString(1, String.valueOf(borrower.getBorrowerCardNumber()));
         st.executeUpdate();
     }
+
+    @Override
+    public void update(Borrower borrower, Connection connection) throws SQLException {
+        int cardNo = borrower.getBorrowerCardNumber();
+
+        PreparedStatement st = connection.prepareStatement("UPDATE tbl_borrower SET name = ?," +
+                "address = ?," +
+                "phone = ? " +
+                "WHERE cardNo = ?");
+        st.setString(1,borrower.getBorrowerName());
+        st.setString(2,borrower.getBorrowerAddress());
+        st.setString(3,borrower.getBorrowerPhoneNumber());
+        st.setString(4,String.valueOf(cardNo));
+        st.executeUpdate();
+
+    }
+
 }
