@@ -51,13 +51,16 @@ public class LibraryPOJO {
 	public List<Book> getBooks() {
 		return books;
 	}
-	public void setBookTitles(List<Book> book) {
+	public void setBooks(List<Book> book) {
 		this.books = book;
 	}	
 	public int getNoOfCopies(int index) {
 		return noOfCopies.get(index);
 	}
-	public void setNoOfCopies(int index, int copies) {
+	public void setNoOfCopies(List<Integer> copies) {
+		this.noOfCopies = (copies);
+	}	
+	public void editNoOfCopies(int index, int copies) {
 		this.noOfCopies.set(index, copies);
 	}	
 }

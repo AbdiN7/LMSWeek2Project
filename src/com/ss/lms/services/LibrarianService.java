@@ -1,5 +1,8 @@
 package com.ss.lms.services;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,28 +11,41 @@ import com.ss.lms.model.Book;
 import com.ss.lms.model.LibraryPOJO;
 
 public class LibrarianService {
-
+	private LibrarianDAO lib = new LibrarianDAO();
+	
 	public void libraryMain(Scanner scan) {
-		while(true) {
-			
-			System.out.println("1) Enter Branch you manage");
-			System.out.println("2) Quit to previous");
-			if(validate(2,scan) == 1) {
-				libraryTwo(scan);
-			}else {
-				break;
+		try {
+			Connection conn = lib.openConnection();
+			while(true) {
+				
+				System.out.println("1) Enter Branch you manage");
+				System.out.println("2) Quit to previous");
+				if(validate(2,scan) == 1) {
+					libraryTwo(scan, conn);
+				}else {
+					lib.closeConnection(conn);
+					break;
+				}
+				
 			}
-			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
-	public void libraryTwo(Scanner scan) {
+	public void libraryTwo(Scanner scan, Connection conn) {
 		while(true) {
 			int options = 1;
-			
-			List<String> branches = LibrarianDAO.viewBranches();
-			for(String branch : branches) {
-				System.out.println(options + ") " + branch);
+			List<LibraryPOJO> branches = new ArrayList<>();
+			try {
+				branches = lib.viewBranches(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			for(LibraryPOJO branch : branches) {
+				System.out.println(options + ") " + branch.getBranchName());
 				options ++;
 			}
 			System.out.println(options + ") Quit to previous");
@@ -37,23 +53,29 @@ public class LibrarianService {
 			if(selection == options) {
 				break;
 			}else {
-				LibraryPOJO branch = LibrarianDAO.getBranchInfo(selection);
-				libraryThree(branch,scan);
+				LibraryPOJO branch = new LibraryPOJO();
+				try {
+					branch = lib.getBranchInfo(branches.get(selection-1).getBranchId(), conn);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				libraryThree(branch,scan, conn);
 			}
 		}
 	}
 	
-	public void libraryThree(LibraryPOJO branch, Scanner scan) {
+	public void libraryThree(LibraryPOJO branch, Scanner scan, Connection conn) {
 option:	while(true) {
 			System.out.println("1) Update the details of the library");
 			System.out.println("2) Add copies of Book to the Branch");
 			System.out.println("3) Quit to previous");
 			switch(1) {
 			case 1:
-				libraryEdit(branch, scan);
+				libraryEdit(branch, scan, conn);
 				break;
 			case 2:
-				libraryAddBooks(branch, scan);
+				libraryAddBooks(branch, scan, conn);
 				break;
 			case 3:
 				break option;
@@ -61,7 +83,7 @@ option:	while(true) {
 		}
 	}
 	
-	public void libraryEdit(LibraryPOJO branch, Scanner scan) {
+	public void libraryEdit(LibraryPOJO branch, Scanner scan, Connection conn) {
 		
 		System.out.println("You have chosen to update the Branch with Branch Id: " + branch.getBranchId() + " and Branch Name: " + branch.getBranchName());
 		System.out.println("Enter 'quit' at any prompt to cancel operation.");
@@ -78,10 +100,15 @@ option:	while(true) {
 		if(!(address.equalsIgnoreCase("n/a"))){
 			branch.setBranchAddress(address);
 		}
-		LibrarianDAO.updateBranchInfo(branch.getBranchId(), branch.getBranchName(), branch.getBranchAddress());
+		try {
+			lib.updateBranchInfo(branch.getBranchId(), branch.getBranchName(), branch.getBranchAddress(), conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void libraryAddBooks(LibraryPOJO branch, Scanner scan) {
+	public void libraryAddBooks(LibraryPOJO branch, Scanner scan, Connection conn) {
 		int count = 1;
 		for(Book book : branch.getBooks()) {
 			System.out.println(count + ") " + book.getBookTitle());
@@ -100,9 +127,14 @@ option:	while(true) {
 				System.out.println("Please enter a number!");
 			}
 			copies += scan.nextInt();
-			branch.setNoOfCopies(selection, copies);
+			branch.editNoOfCopies(selection, copies);
 		}
-		LibrarianDAO.addCopies(branch.getBooks().get(selection).getBookId(), branch.getBranchId(), branch.getNoOfCopies(selection));
+		try {
+			lib.addCopies(branch.getBooks().get(selection).getBookId(), branch.getBranchId(), branch.getNoOfCopies(selection), conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public int validate(int numberOfResponses, Scanner scan){
