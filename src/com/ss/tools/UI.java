@@ -1,5 +1,7 @@
 package com.ss.tools;
 
+import com.ss.service.*;
+
 public class UI {
 
 	public void mainMenuTop() {
@@ -112,6 +114,12 @@ public class UI {
 		System.out.println("| \\ \\_____\\\\ \\_____\\\\ \\_\\ \\_\\\\ \\_\\ \\_\\\\ \\_____\\\\ \\__/\".~\\_\\\\ \\_____\\\\ \\_\\ \\_\\    |");
 		System.out.println("|  \\/_____/ \\/_____/ \\/_/ /_/ \\/_/ /_/ \\/_____/ \\/_/   \\/_/ \\/_____/ \\/_/ /_/    |");
 		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println( ConsoleColors.RESET+"| "+ConsoleColors.BLUE_BACKGROUND+"Account #|"+BorrowerService.borrower.getBorrowerCardNumber()
+		                   +" "+"Name:"+BorrowerService.borrower.getBorrowerName()+ConsoleColors.RESET+
+			           	   "                                                 |");
+		System.out.print(ConsoleColors.PURPLE_BOLD);
+		System.out.println("|                                                                                |");
 		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[1) Check out Book]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                            |");
 		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[2) Return a Book ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                            |");
 		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[3) Quit to Main  ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                    Version 0.0.1e (C) 1985 |");
@@ -123,8 +131,8 @@ public class UI {
 	}
 	
 	public void borrowerMenuOne() {
-		System.out.println(" ________________________________________________________________________________ ");
-		System.out.println("|________________________________________________________________________________|");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
 	}
 	public void borrowerMenuOneBottome() {
 		System.out.println("|________________________________________________________________________________|");

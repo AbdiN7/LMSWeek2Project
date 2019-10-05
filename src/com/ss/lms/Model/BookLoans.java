@@ -1,21 +1,24 @@
 package com.ss.lms.Model;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 public class BookLoans {
 	
 	private int bookId;
 	private int branchId;
 	private int cardNo;
-	private String dateOut;
-	private String dueDate;
+	private Date dateOut;
+	private Date dueDate;
 	
 	public BookLoans(){};
 	
-	public BookLoans(int book,int branch, int card, String date,String due){
+	public BookLoans(int book,int branch, int card, Date date,Date due){
 		bookId = book;
 		branchId = branch;
 		cardNo = card;
-		dateOut = date;
-		dueDate = due;
+		setDateOut(date);
+		setDueDate(due);
 	}
 	
 	
@@ -38,17 +41,24 @@ public class BookLoans {
 	public void setCardNo(int cardNo) {
 		this.cardNo = cardNo;
 	}
-	public String getDateOut() {
+
+	public Date getDateOut() {
 		return dateOut;
 	}
-	public void setDateOut(String dateOut) {
+
+	public void setDateOut(Date dateOut) {
 		this.dateOut = dateOut;
 	}
-	public String getDueDate() {
+
+	public Date getDueDate() {
 		return dueDate;
 	}
-	public void setDueDate(String dueDate) {
+
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
+
+
+
 
 }

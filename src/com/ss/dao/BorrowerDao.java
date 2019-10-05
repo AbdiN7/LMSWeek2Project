@@ -4,12 +4,17 @@ import java.sql.*;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import com.ss.lms.Model.BookLoans;
+import com.ss.lms.Model.Borrower;
+import com.ss.service.BorrowerService;
 
 public class BorrowerDao {
 	
 	Connection connection = null;
-	
-	
+	PreparedStatement stmt =null;
+	ResultSet rs = null;
 	/*
 	 * 
 	 * Open and close the connections when needed
@@ -36,10 +41,41 @@ public class BorrowerDao {
 	 */
 	
 	
+	public Borrower getAccount(int cardNo) throws SQLException {
+		
+		
+		stmt = connection.prepareStatement("select * from tbl_borrower where cardNo = (?);");
+		stmt.setInt(1,cardNo);
+		rs = stmt.executeQuery();
+		rs.next();
+		BorrowerService.borrower.setBorrowerCardNumber(rs.getInt(1));
+		BorrowerService.borrower.setBorrowerName(rs.getString(2));
+		BorrowerService.borrower.setBorrowerAddress(rs.getString(3));
+		BorrowerService.borrower.setBorrowerPhoneNumber(rs.getString(4));
+		
+		return BorrowerService.borrower;
+	}
+	
+	
+	
+	public List<BookLoans> lonasList() throws SQLException{
+		
+		stmt = connection.prepareStatement("select * from tbl_book_loans\r\n" + 
+				                           "where cardNo = ?;");
+		stmt.setInt(1, BorrowerService.borrower.getBorrowerCardNumber());
+		rs=stmt.executeQuery();
+		while(rs.next()) {
+			BookLoans bookLoans = new BookLoans(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getDate(4),rs.getDate(5));
+			BorrowerService.loansList.add(bookLoans);
+		}
+		
+		return BorrowerService.loansList;
+	}
+	
 	public int readBranch() throws SQLException {
 		int count = 1;
-		PreparedStatement  stmt = connection.prepareStatement("select * from tbl_library_branch");
-		ResultSet rs = stmt.executeQuery();
+		stmt = connection.prepareStatement("select * from tbl_library_branch");
+		rs = stmt.executeQuery();
 		System.out.println("|                Pick the Branch you want to check out from                      | ");
 		System.out.println("|________________________________________________________________________________|");
 		while(rs.next())
@@ -72,23 +108,26 @@ public class BorrowerDao {
 		
 	}
 	
-	public void readBooks(int branchId) throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("Select tbl_book.title, tbl_author.authorName\r\n" + 
-				"from tbl_library_branch join tbl_book_copies on tbl_library_branch.branchId = tbl_book_copies.branchId\r\n" + 
-				"join tbl_book on tbl_book_copies.bookId = tbl_book.bookId\r\n" + 
-				"join tbl_author on tbl_book.authId = tbl_author.authorId\r\n" + 
-				"where tbl_library_branch.branchId = (?) and tbl_book_copies.noOfCopies != 0;");
-		ResultSet rs = null;
+	public int readBooks(int branchId) throws SQLException {
+		stmt = connection.prepareStatement("Select tbl_book.title, tbl_author.authorName\r\n" + 
+				                                             "from tbl_library_branch join tbl_book_copies on tbl_library_branch.branchId = tbl_book_copies.branchId\r\n" + 
+				                                             "join tbl_book on tbl_book_copies.bookId = tbl_book.bookId\r\n" + 
+				                                             "join tbl_author on tbl_book.authId = tbl_author.authorId\r\n" + 
+				                                             "where tbl_library_branch.branchId = (?) and tbl_book_copies.noOfCopies != 0;");
 		stmt.setInt(1,branchId);
 		rs = stmt.executeQuery();
+		int count = 1;
 		while(rs.next()) {
-			System.out.println(rs.getString(1)+ " by " + rs.getString(2));
+			System.out.println("| "+count+") "+rs.getString(1)+ " by " + rs.getString(2));
+			count++;
 		}	
+		System.out.println("| "+count+") Quit to cancel operation                                                  |");
+		System.out.println("|________________________________________________________________________________|");
+		return count;
 	}
 	
 	public void checkOutBook(int bookId, int branchId, int cardNo,LocalDateTime obj  ) throws SQLException {
 		PreparedStatement stmt = connection.prepareStatement("insert into tbl_book_loans values(?,?,?,?,?);");
-		ResultSet rs = null;
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		stmt.setInt(1, bookId);
 		stmt.setInt(2, branchId);
@@ -103,7 +142,6 @@ public class BorrowerDao {
 	public void checkInBook(int cardNo, int bookId, int branchId) throws SQLException {
 		PreparedStatement stmt = connection.prepareStatement("delete from tbl_book_loans where tbl_book_loans.cardNo = ? and tbl_book_loans.bookId = ?\r\n" + 
 				                                             "and tbl_book_loans.branchId = ?;");
-		ResultSet rs = null;
 		stmt.setInt(1, cardNo);
 		stmt.setInt(2, bookId);
 		stmt.setInt(3, branchId);
