@@ -7,10 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AdminBookDao implements AdminDao<Book, Connection> {
-    private DataConnector dataConnector = new DataConnector();
+
     @Override
     public void add(Book book, Connection connection) throws SQLException {
-        connection = dataConnector.getCurrConnection();
         int authId = book.getBookAuthor().getAuthorId();
         int pubId = book.getBookPublisher().getPublisherId();
 
@@ -28,6 +27,16 @@ public class AdminBookDao implements AdminDao<Book, Connection> {
 
         PreparedStatement st = connection.prepareStatement("DELETE FROM tbl_book WHERE bookId = ?");
         st.setString(1,String.valueOf(book.getBookId()));
+        st.executeUpdate();
+    }
+
+    @Override
+    public void update(Book book, Connection connection) throws SQLException {
+        int bookId = book.getBookId();
+        PreparedStatement st = connection.prepareStatement("UPDATE tbl_book SET title = ? " +
+                "WHERE bookId = ?");
+        st.setString(1,book.getBookTitle());
+        st.setString(2,String.valueOf(bookId));
         st.executeUpdate();
     }
 }

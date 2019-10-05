@@ -1,6 +1,11 @@
 package com.ss.lms;
 
 import com.ss.lms.dao.DataConnector;
+import com.ss.lms.model.Author;
+import com.ss.lms.model.Borrower;
+import com.ss.lms.model.LibraryPOJO;
+import com.ss.lms.model.Publisher;
+import com.ss.lms.services.AdminServices;
 import com.ss.tools.*;
 
 import java.sql.Connection;
@@ -18,8 +23,7 @@ public class Main {
 	public static Scanner userInput = new Scanner(System.in);
 	
 	public static void main(String[] args) throws SQLException {
-		DataConnector dataConnector = new DataConnector();
-		Connection connection = dataConnector.getCurrConnection();
+
 
 		char input = ' ';
 
