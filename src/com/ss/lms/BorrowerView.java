@@ -28,6 +28,8 @@ public class BorrowerView {
 			// borrowerService.checkInBook(467, 1, 1);
 
 			// borrowerService.checkOutBook(1, 1, 467, obj);
+			//borrowerService.getBooks(1);
+			
 			Main.ui.borrowerLogIn();
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
@@ -45,24 +47,21 @@ public class BorrowerView {
 					if (input == '1') {
 						while (true) {
 							Main.ui.borrowerMenuOne();
-							int getNum = borrowerService.readBranch();
+							int branchId = borrowerService.readBranch();
 							Main.ui.borrowerMenuOneBottome();
 							idInput = Main.userInput.nextInt();
-							if (idInput == getNum) {
+							if (idInput == branchId) {
 								break;
 							}
-							else if(idInput != getNum) {
-								int getNm = borrowerService.readBooks(idInput);
-								while(true) {
-									if(idInput == getNm) {
-										break;
-									}
-									else if(idInput != getNm) {
-										//borrowerService.checkOutBook(bookId, branchId, cardNo, obj);
-									}
-								}
+							else if(idInput != branchId) {
+								borrowerService.getBooks(branchId);
+								
+								int bookChoice = borrowerService.readBooks(branchId);
+								
 							}
-						}
+							
+						}//End of Menu Option 1 
+						
 					} else if (input == '2') {
 
 					} else if (input == '3') {
@@ -71,7 +70,9 @@ public class BorrowerView {
 					} else {
 						System.out.println("Not a valid menu option!");
 					}
-				}
+					
+				}//End of Borrower Menu
+				
 			} else {
 				System.out.println("Re-Enter a Valid ID");
 			}

@@ -3,6 +3,13 @@ package com.ss.lms.Model;
 public class Author {
     private Integer authorId;
     private  String authorName;
+    
+    
+    public Author(){};
+    public Author(Integer auth, String authName){
+    	authorId = auth;
+    	authorName = authName;
+    }
 
     public Integer getAuthorId() {
         return authorId;

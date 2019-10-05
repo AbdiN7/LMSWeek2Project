@@ -5,22 +5,29 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.ss.dao.BorrowerDao;
+import com.ss.lms.Model.Author;
+import com.ss.lms.Model.Book;
 import com.ss.lms.Model.BookLoans;
 import com.ss.lms.Model.Borrower;
+import com.ss.lms.Model.Publisher;
 
 import java.util.*;
 
 public class BorrowerService {
 	
-	BorrowerDao borrowrDao = new BorrowerDao();
+	BorrowerDao borrowerDao = new BorrowerDao();
 	public static List<BookLoans>loansList = new ArrayList<BookLoans>();
+	public static List<Book>bookList = new ArrayList<Book>();
 	public static Borrower borrower = new Borrower();
+	public static Publisher publisher = new Publisher();
+	public static Author author = new Author();
+	public static Book book = new Book();
 	
 	public void getAccount(int cardNo) {
 		
 		borrower.setBorrowerCardNumber(cardNo);
 		try {
-			borrower = borrowrDao.getAccount(cardNo);
+			borrower = borrowerDao.getAccount(cardNo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,13 +37,12 @@ public class BorrowerService {
 		 * borrower.getBorrowerName()+ borrower.getBorrowerAddress()+
 		 * borrower.getBorrowerPhoneNumber());
 		 */
-
 	}
 	
 	public void getLoans(){
 		
 		try {
-			loansList = borrowrDao.lonasList();
+			loansList = borrowerDao.lonasList();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,11 +51,21 @@ public class BorrowerService {
 		
 	}
 	
+	public void getBooks(int branchId) {
+		try {
+			bookList = borrowerDao.getBooks(branchId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//bookList.forEach(n->System.out.println(n.getBookTitle()));
+	}
+	
 	
 	
 	public void checkOutBook(int bookId, int branchId, int cardNo, LocalDateTime obj) {
 		try {
-			borrowrDao.checkOutBook(bookId, branchId, cardNo,obj);
+			borrowerDao.checkOutBook(bookId, branchId, cardNo,obj);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +74,7 @@ public class BorrowerService {
 	
 	public void checkInBook(int cardNo, int bookId, int branchId) {
 		try {
-			borrowrDao.checkInBook(cardNo, bookId, branchId);
+			borrowerDao.checkInBook(cardNo, bookId, branchId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +84,7 @@ public class BorrowerService {
 	public void OpenConnection() {
 		try {
 			try {
-				borrowrDao.openConnection();
+				borrowerDao.openConnection();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -82,7 +98,7 @@ public class BorrowerService {
 	public int readBranch() {
 		int count = 0;
 		try {
-			count = borrowrDao.readBranch();
+			count = borrowerDao.readBranch();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,7 +109,7 @@ public class BorrowerService {
 	public int readBooks(int branchId) {
 		int count = 0;
 		try {
-			count  = borrowrDao.readBooks(branchId);
+			count  = borrowerDao.readBooks(branchId);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -113,7 +129,7 @@ public class BorrowerService {
 	public boolean checkLoginID(int borrowerCardNo) {
 		boolean checkId = false;
 		try {
-			checkId =  borrowrDao.checkCardNo(borrowerCardNo);
+			checkId =  borrowerDao.checkCardNo(borrowerCardNo);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

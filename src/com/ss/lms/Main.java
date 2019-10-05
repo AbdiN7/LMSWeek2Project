@@ -12,7 +12,7 @@ public class Main {
 	
 	
 	
-	static UI ui = new UI();
+	public static UI ui = new UI();
 	static BorrowerView borrowerView = new BorrowerView();
 	
 	public static Scanner userInput = new Scanner(System.in);

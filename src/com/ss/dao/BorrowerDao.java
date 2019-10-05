@@ -6,8 +6,11 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import com.ss.lms.Model.Author;
+import com.ss.lms.Model.Book;
 import com.ss.lms.Model.BookLoans;
 import com.ss.lms.Model.Borrower;
+import com.ss.lms.Model.Publisher;
 import com.ss.service.BorrowerService;
 
 public class BorrowerDao {
@@ -40,6 +43,29 @@ public class BorrowerDao {
 	 * 
 	 */
 	
+	public List<Book> getBooks(int branchId) throws SQLException{
+		stmt = connection.prepareStatement("select tbl_book.bookId,tbl_book.title,tbl_book.authId,tbl_author.authorName,\r\n" + 
+				"        tbl_book.pubId, tbl_publisher.publisherName,tbl_publisher.publisherAddress,\r\n" + 
+				"        tbl_publisher.publisherPhone\r\n" + 
+				"from tbl_library_branch \r\n" + 
+				"join tbl_book_copies on tbl_library_branch.branchId = tbl_book_copies.branchId\r\n" + 
+				"join tbl_book on tbl_book_copies.bookId = tbl_book.bookId\r\n" + 
+				"join tbl_author on tbl_book.authId = tbl_author.authorId\r\n" + 
+				"join tbl_publisher on tbl_publisher.publisherId = tbl_book.pubId\r\n" + 
+				"where tbl_library_branch.branchId = (?);");
+		stmt.setInt(1, branchId);
+		rs = stmt.executeQuery();
+		rs.next();
+		do{
+			
+			BorrowerService.author = new Author(rs.getInt(3),rs.getString(4));
+			BorrowerService.publisher = new Publisher(rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8));
+			BorrowerService.book = new Book(rs.getInt(1),rs.getString(2),BorrowerService.author,BorrowerService.publisher);
+			BorrowerService.bookList.add(BorrowerService.book);
+		}while(rs.next());
+		
+		return BorrowerService.bookList;
+	}
 	
 	public Borrower getAccount(int cardNo) throws SQLException {
 		

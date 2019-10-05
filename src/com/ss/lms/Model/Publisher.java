@@ -4,7 +4,19 @@ public class Publisher {
     private Integer publisherId;
     private String publisherName;
     private String publisherAddress;
+    private String publisherPhone;
 
+    
+    public Publisher() {};
+    
+    public Publisher(Integer pubId, String pubName, String pubAddress, String pubPhone) {
+    	publisherId = pubId;
+    	publisherName = pubName;
+    	publisherAddress = pubAddress;
+    	publisherPhone = pubPhone;
+    }
+    
+    
     public Integer getPublisherId() {
         return publisherId;
     }
@@ -28,4 +40,12 @@ public class Publisher {
     public void setPublisherAddress(String publisherAddress) {
         this.publisherAddress = publisherAddress;
     }
+
+	public String getPublisherPhone() {
+		return publisherPhone;
+	}
+
+	public void setPublisherPhone(String publisherPhone) {
+		this.publisherPhone = publisherPhone;
+	}
 }
