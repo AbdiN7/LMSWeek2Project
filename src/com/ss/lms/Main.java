@@ -1,9 +1,9 @@
 package com.ss.lms;
 
-import com.ss.dao.*;
-import com.ss.lms.services.AdminServices;
+import com.ss.lms.dao.DataConnector;
 import com.ss.tools.*;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -17,9 +17,9 @@ public class Main {
 
 	public static Scanner userInput = new Scanner(System.in);
 	
-	public static void main(String[] args)  {
-		AdminServices myAdmin = new AdminServices();
-
+	public static void main(String[] args) throws SQLException {
+		DataConnector dataConnector = new DataConnector();
+		Connection connection = dataConnector.getCurrConnection();
 
 		char input = ' ';
 
