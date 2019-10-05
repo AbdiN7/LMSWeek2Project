@@ -1,6 +1,8 @@
 package com.ss.service;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.ss.dao.BorrowerDao;
 import com.ss.lms.Model.BookLoans;
@@ -12,10 +14,22 @@ public class BorrowerService {
 	BorrowerDao borrowrDao = new BorrowerDao();
 	List<BookLoans>loansList = new ArrayList<>();
 	
+	public void checkOutBook(int bookId, int branchId, int cardNo, LocalDateTime obj) {
+		try {
+			borrowrDao.checkOutBook(bookId, branchId, cardNo,obj);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
-	public void getInputCheck(int userInput)
-	{
-		
+	public void checkInBook(int cardNo, int bookId, int branchId) {
+		try {
+			borrowrDao.checkInBook(cardNo, bookId, branchId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void OpenConnection() {

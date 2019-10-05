@@ -1,6 +1,7 @@
 package com.ss.lms;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import com.ss.dao.BorrowerDao;
 import com.ss.lms.Main;
@@ -20,9 +21,13 @@ public class BorrowerView {
 		char input = 0;
 		boolean idFound = false;
 		int idInput = 0;
+		LocalDateTime obj = LocalDateTime.now();
 
 		while (true) {
-
+			
+			//borrowerService.checkInBook(467, 1, 1);
+			
+			//borrowerService.checkOutBook(1, 1, 467, obj);
 			Main.ui.borrowerLogIn();
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();

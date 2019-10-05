@@ -2,6 +2,9 @@ package com.ss.dao;
 
 import java.sql.*;
 
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
 public class BorrowerDao {
 	
 	Connection connection = null;
@@ -80,26 +83,43 @@ public class BorrowerDao {
 		rs = stmt.executeQuery();
 		while(rs.next()) {
 			System.out.println(rs.getString(1)+ " by " + rs.getString(2));
-		}
+		}	
+	}
+	
+	public void checkOutBook(int bookId, int branchId, int cardNo,LocalDateTime obj  ) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("insert into tbl_book_loans values(?,?,?,?,?);");
+		ResultSet rs = null;
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		stmt.setInt(1, bookId);
+		stmt.setInt(2, branchId);
+		stmt.setInt(3, cardNo);
+		stmt.setObject(4, obj.format(myFormatObj));
+		stmt.setObject(5, obj.plusDays(7).format(myFormatObj));
+		stmt.executeUpdate();
 		
+	}
+	
+	
+	public void checkInBook(int cardNo, int bookId, int branchId) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("delete from tbl_book_loans where tbl_book_loans.cardNo = ? and tbl_book_loans.bookId = ?\r\n" + 
+				                                             "and tbl_book_loans.branchId = ?;");
+		ResultSet rs = null;
+		stmt.setInt(1, cardNo);
+		stmt.setInt(2, bookId);
+		stmt.setInt(3, branchId);
+		stmt.executeUpdate();
+		System.out.println("you have retuend book!");
 		
 	}
 	
 	
 
+
 	
-	/*
-	 * public void getTable() throws SQLException, ClassNotFoundException {
-	 * 
-	 * Connection con = null; try{ Class.forName("com.mysql.jdbc.Driver");
-	 * con=DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root",
-	 * "pass"); //here sonoo is database name, root is username and password
-	 * Statement stmt=con.createStatement(); ResultSet count =
-	 * stmt.executeQuery("select * from tbl_borrower;"); //while(count.next())
-	 * if(count.next()){ System.out.println(count.getString(1)); }
-	 * 
-	 * }catch(Exception e){ System.out.println(e);} finally { con.close(); } }
-	 */
+	
+	
+	
+	
 	
 	
 }
