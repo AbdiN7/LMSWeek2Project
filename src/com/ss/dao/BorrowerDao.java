@@ -33,7 +33,7 @@ public class BorrowerDao {
 	 */
 	
 	
-	public void readBranch() throws SQLException {
+	public int readBranch() throws SQLException {
 		int count = 1;
 		PreparedStatement  stmt = connection.prepareStatement("select * from tbl_library_branch");
 		ResultSet rs = stmt.executeQuery();
@@ -44,8 +44,9 @@ public class BorrowerDao {
 			System.out.println(String.format("%-20s","|"+count+")"+rs.getString(2)+", "+rs.getString(3)));
 			count++;
 		}
-		System.out.println("|0) Quit to previous                                                             |");
+		System.out.println("|"+count+") Quit to previous                                                             |");
 		System.out.println("|________________________________________________________________________________|");
+		return count;
 	}
 	
 	public void selectBranch(int choice) throws SQLException {
@@ -68,9 +69,20 @@ public class BorrowerDao {
 		
 	}
 	
-	public void readBooks() throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("select * from tbl_libary_branch");
-		ResultSet rs = stmt.executeQuery();
+	public void readBooks(int branchId) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement("Select tbl_book.title, tbl_author.authorName\r\n" + 
+				"from tbl_library_branch join tbl_book_copies on tbl_library_branch.branchId = tbl_book_copies.branchId\r\n" + 
+				"join tbl_book on tbl_book_copies.bookId = tbl_book.bookId\r\n" + 
+				"join tbl_author on tbl_book.authId = tbl_author.authorId\r\n" + 
+				"where tbl_library_branch.branchId = (?) and tbl_book_copies.noOfCopies != 0;");
+		ResultSet rs = null;
+		stmt.setInt(1,branchId);
+		rs = stmt.executeQuery();
+		while(rs.next()) {
+			System.out.println(rs.getString(1)+ " by " + rs.getString(2));
+		}
+		
+		
 	}
 	
 	

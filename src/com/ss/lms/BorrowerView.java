@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import com.ss.dao.BorrowerDao;
 import com.ss.lms.Main;
+import com.ss.lms.Model.BookLoans;
 import com.ss.service.BorrowerService;
 import com.ss.tools.ConsoleColors;
 
@@ -12,6 +13,7 @@ public class BorrowerView {
 	public void menuBorrower() throws SQLException {
 
 		BorrowerService borrowerService = new BorrowerService();
+		
 
 		borrowerService.OpenConnection();
 		// ok
@@ -36,12 +38,14 @@ public class BorrowerView {
 					if (input == '1') {
 						while(true) {
 						Main.ui.borrowerMenuOne();
-						borrowerService.readBranch();
+						int getNum = borrowerService.readBranch();
 						Main.ui.borrowerMenuOneBottome();
-						input = Main.userInput.next().charAt(0);
-						
-						if(input == '0') {
+						idInput = Main.userInput.nextInt();
+						if(idInput == getNum) {
 							break;
+						}
+						else {
+							borrowerService.readBooks(idInput);
 						}
 						}
 					} else if (input == '2') {
