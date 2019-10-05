@@ -17,6 +17,7 @@ public class DataConnector {
             return connection;
         }
         else{
+            System.out.println("Opening Connection...");
             return DriverManager.getConnection(myUrl.getUrl());
         }
     }
