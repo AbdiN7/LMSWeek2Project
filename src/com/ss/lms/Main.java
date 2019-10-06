@@ -1,10 +1,9 @@
 package com.ss.lms;
 
 import com.ss.lms.dao.DataConnector;
-import com.ss.lms.model.Author;
-import com.ss.lms.model.Borrower;
-import com.ss.lms.model.LibraryPOJO;
+
 import com.ss.lms.model.Publisher;
+import com.ss.lms.secret.GenerateID;
 import com.ss.lms.services.AdminServices;
 import com.ss.tools.*;
 
@@ -23,7 +22,6 @@ public class Main {
 	public static Scanner userInput = new Scanner(System.in);
 	
 	public static void main(String[] args) throws SQLException {
-
 
 		char input = ' ';
 

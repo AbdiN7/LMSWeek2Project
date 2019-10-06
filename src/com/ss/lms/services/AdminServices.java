@@ -7,6 +7,11 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class AdminServices {
+    private AdminDao<Book, Connection> bookDao = new AdminBookDao();
+    private AdminDao<Borrower, Connection> borrowerDao = new AdminBorrowerDao();
+    private AdminDao<Author, Connection> authorDao = new AdminAuthorDao();
+    private AdminDao <Publisher, Connection> publisherDao = new AdminPublisherDao();
+    private AdminDao<LibraryPOJO, Connection> libDao = new AdminLibBranchDao();
 
     //////// BOOK SERVICES /////////
     //////// BOOK SERVICES /////////
@@ -15,8 +20,7 @@ public class AdminServices {
     {
 
         try{
-            AdminDao<Book, Connection> adminDao = new AdminBookDao();
-            adminDao.delete(book, connection);
+            bookDao.delete(book, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -24,15 +28,19 @@ public class AdminServices {
     public  void addBook(Book book, Connection connection)
     {
         try{
-            AdminDao<Book, Connection> adminDao = new AdminBookDao();
-            adminDao.add(book, connection);
+            bookDao.add(book, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void updateBook()
+    public void updateBook(Book book, Connection connection)
     {
-
+        try{
+            bookDao.update(book, connection);
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
     //////// BORROWER SERVICES ////////
     //////// BORROWER SERVICES ////////
@@ -40,8 +48,7 @@ public class AdminServices {
     public void deleteBorrower(Borrower borrower, Connection connection)
     {
         try{
-         AdminDao<Borrower, Connection> adminDao = new AdminBorrowerDao();
-         adminDao.delete(borrower, connection);
+         borrowerDao.delete(borrower, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,9 +56,7 @@ public class AdminServices {
     public  void addBorrower(Borrower borrower, Connection connection)
     {
         try{
-           AdminDao<Borrower, Connection> adminDao = new AdminBorrowerDao();
-           adminDao.add(borrower, connection);
-
+           borrowerDao.add(borrower, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,14 +64,13 @@ public class AdminServices {
     public void updateBorrower(Borrower borrower, Connection connection)
     {
         try{
-            AdminDao<Borrower, Connection> adminDao = new AdminBorrowerDao();
-            adminDao.update(borrower, connection);
+            borrowerDao.update(borrower, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
         }
     }
-
+    //////// DUE DATE SERVICE /////////
     public void setDueDate(Borrower borrower, Book book, Connection connection)
     {
         try{
@@ -99,8 +103,7 @@ public class AdminServices {
     public void addAuthor(Author author, Connection connection)
     {
         try{
-            AdminDao<Author, Connection> adminDao = new AdminAuthorDao();
-            adminDao.add(author, connection);
+            authorDao.add(author, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -108,8 +111,7 @@ public class AdminServices {
     public void deleteAuthor(Author author, Connection connection)
     {
         try{
-            AdminDao<Author, Connection> adminDao = new AdminAuthorDao();
-            adminDao.delete(author, connection);
+            authorDao.delete(author, connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -117,8 +119,7 @@ public class AdminServices {
     public void updateAuthor(Author author, Connection connection)
     {
         try{
-            AdminDao<Author, Connection> adminDao = new AdminAuthorDao();
-            adminDao.update(author, connection);
+            authorDao.update(author, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -130,8 +131,7 @@ public class AdminServices {
     public void addPublisher(Publisher publisher, Connection connection)
     {
         try{
-            AdminDao <Publisher, Connection> adminDao = new AdminPublisherDao();
-            adminDao.add(publisher , connection);
+            publisherDao.add(publisher , connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -140,8 +140,7 @@ public class AdminServices {
     public void deletePublisher(Publisher publisher, Connection connection)
     {
         try{
-            AdminDao<Publisher, Connection> adminDao = new AdminPublisherDao();
-            adminDao.delete(publisher, connection);
+            publisherDao.delete(publisher, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -150,8 +149,7 @@ public class AdminServices {
     public void updatePublisher(Publisher publisher, Connection connection)
     {
         try{
-            AdminDao<Publisher, Connection> adminDao = new AdminPublisherDao();
-            adminDao.update(publisher, connection);
+            publisherDao.update(publisher, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -163,8 +161,7 @@ public class AdminServices {
     public void addLibBranch (LibraryPOJO library, Connection connection)
     {
         try{
-            AdminDao<LibraryPOJO, Connection> adminDao = new AdminLibBranchDao();
-            adminDao.add(library, connection);
+            libDao.add(library, connection);
         }catch (SQLException e)
         {
             e.printStackTrace();
@@ -174,8 +171,7 @@ public class AdminServices {
     {
         try
         {
-            AdminDao<LibraryPOJO, Connection> adminDao = new AdminLibBranchDao();
-            adminDao.delete(library, connection);
+            libDao.delete(library, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -185,8 +181,7 @@ public class AdminServices {
     {
         try
         {
-            AdminDao<LibraryPOJO, Connection> adminDao = new AdminLibBranchDao();
-            adminDao.update(library, connection);
+            libDao.update(library, connection);
         } catch (SQLException e)
         {
             e.printStackTrace();

@@ -1,5 +1,6 @@
-*.classpath
-*.project
+.classpath
+.project
+.idea
 *.iml
 <<<<<<< Updated upstream
 .idea/

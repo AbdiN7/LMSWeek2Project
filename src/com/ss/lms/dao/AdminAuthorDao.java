@@ -1,17 +1,18 @@
 package com.ss.lms.dao;
 
 import com.ss.lms.model.Author;
+import com.ss.lms.secret.GenerateID;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AdminAuthorDao implements AdminDao<Author, Connection > {
-
+    private GenerateID generateID = new GenerateID();
 
     @Override
     public void add(Author author, Connection connection) throws SQLException {
-
+        author.setAuthorId(generateID.randomID());
         PreparedStatement st = connection.prepareStatement("insert into tbl_author (authorId, authorName)" +
                 "VALUES (?,?)");
         st.setString(1, String.valueOf(author.getAuthorId()));
