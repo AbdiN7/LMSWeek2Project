@@ -21,19 +21,20 @@ public class BorrowerView {
 		char input = 0;
 		boolean idFound = false;
 		int idInput = 0;
-		LocalDateTime obj = LocalDateTime.now();
+		int branch = 0;
+		LocalDateTime time = LocalDateTime.now();
 
 		while (true) {
 
 			// borrowerService.checkInBook(467, 1, 1);
 
 			// borrowerService.checkOutBook(1, 1, 467, obj);
-			//borrowerService.getBooks(1);
-			
+			// borrowerService.getBooks(1);
+
 			Main.ui.borrowerLogIn();
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
-
+			borrowerService.getLibrary();
 			idFound = borrowerService.checkLoginID(idInput);
 			System.out.println(idFound);
 			if (idFound) {
@@ -50,19 +51,45 @@ public class BorrowerView {
 							int branchId = borrowerService.readBranch();
 							Main.ui.borrowerMenuOneBottome();
 							idInput = Main.userInput.nextInt();
+
 							if (idInput == branchId) {
 								break;
+							} else if (idInput != branchId) {
+								while (true) {
+									branchId = idInput;
+									borrowerService
+											.getBooks(BorrowerService.libraryList.get(idInput - 1).getBranchId());
+									int bookChoice = borrowerService
+											.readBooks(BorrowerService.libraryList.get(idInput - 1).getBranchId());
+									idInput = Main.userInput.nextInt();
+									if (idInput == bookChoice) {
+										break;
+									} else if (idInput != bookChoice) {
+										// if(BorrowerService.loansList.get().getCardNo() ==
+										// BorrowerService.borrower.getBorrowerCardNumber() )
+										System.out.println(BorrowerService.bookList.size());
+										borrowerService.checkOutBook(
+												BorrowerService.bookList.get(idInput - 1).getBookId(),
+												BorrowerService.libraryList.get(branchId - 1).getBranchId(),
+												BorrowerService.borrower.getBorrowerCardNumber(), time);
+										System.out.println("You just checked out "
+												+ BorrowerService.bookList.get(idInput - 1).getBookTitle() + "!");
+									}
+								}
+
 							}
-							else if(idInput != branchId) {
-								borrowerService.getBooks(branchId);
-								
-								int bookChoice = borrowerService.readBooks(branchId);
-								
-							}
-							
-						}//End of Menu Option 1 
-						
+
+						} // End of Menu Option 1
+
 					} else if (input == '2') {
+
+						System.out.println("Return a book why don't you");
+						BorrowerService.loansList.forEach(n -> System.out.println(n.getBookId()));
+						int test = Main.userInput.nextInt();
+						System.out.println(BorrowerService.borrower.getBorrowerCardNumber() + " " + BorrowerService.loansList.get(test-1).getBookId()+" "+BorrowerService.libraryList.get(1).getBranchName());
+						borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
+								BorrowerService.loansList.get(test - 1).getBookId(),
+								BorrowerService.libraryList.get(0).getBranchId());
 
 					} else if (input == '3') {
 						idInput = -1;
@@ -70,9 +97,9 @@ public class BorrowerView {
 					} else {
 						System.out.println("Not a valid menu option!");
 					}
-					
-				}//End of Borrower Menu
-				
+
+				} // End of Borrower Menu
+
 			} else {
 				System.out.println("Re-Enter a Valid ID");
 			}
@@ -81,6 +108,8 @@ public class BorrowerView {
 			}
 
 		}
+		borrowerService.closeConnection();
+		borrowerService.destroyList();
 		// End of borrower Loop
 		System.out.print(ConsoleColors.RESET);
 	}

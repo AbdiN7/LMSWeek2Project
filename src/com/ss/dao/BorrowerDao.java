@@ -10,6 +10,7 @@ import com.ss.lms.Model.Author;
 import com.ss.lms.Model.Book;
 import com.ss.lms.Model.BookLoans;
 import com.ss.lms.Model.Borrower;
+import com.ss.lms.Model.LibraryBranch;
 import com.ss.lms.Model.Publisher;
 import com.ss.service.BorrowerService;
 
@@ -112,6 +113,19 @@ public class BorrowerDao {
 		System.out.println("|"+count+") Quit to previous                                                             |");
 		System.out.println("|________________________________________________________________________________|");
 		return count;
+	}
+	
+	public List<LibraryBranch> libraryList() throws SQLException{
+		stmt = connection.prepareStatement("select * from tbl_library_branch;");
+		rs = stmt.executeQuery();
+		
+		while(rs.next()){
+			BorrowerService.libraryBranch = new LibraryBranch(rs.getInt(1),rs.getString(2),rs.getString(3));
+			BorrowerService.libraryList.add(BorrowerService.libraryBranch);
+		}
+		
+		return BorrowerService.libraryList;
+		
 	}
 	
 	public void selectBranch(int choice) throws SQLException {
