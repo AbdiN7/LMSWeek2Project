@@ -1,11 +1,15 @@
 package com.ss.lms.model;
 
 public class Book {
-    private Integer bookId;
-    private String bookTitle;
+    protected Integer bookId;
+    protected String bookTitle;
     private Author bookAuthor;
     private Publisher bookPublisher;
 
+    public Book() {
+    	
+    }
+    
     public Integer getBookId() {
         return bookId;
     }
