@@ -28,7 +28,7 @@ public class Main {
 		ui.mainMenuTop();
 
 		while (true) {
-
+			
 			ui.mainMenu();
 
 			input = userInput.next().charAt(0);
@@ -36,10 +36,12 @@ public class Main {
 			ui.menuBoxBottom();
 
 			if (input == '1') {
+				ui.librarianMenu();
 
 			} else if (input == '2') {
-
+				ui.adminMainMenu();
 			} else if (input == '3') {
+				java.awt.Toolkit.getDefaultToolkit().beep();  
 				borrowerView.menuBorrower();
 
 			} else if (input == '0') {

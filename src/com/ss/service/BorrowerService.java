@@ -32,17 +32,26 @@ public class BorrowerService {
 		libraryList.clear();
 	}
 
-	
-	
-	
+	public boolean alreadyCheckedOut(int bookSelect) {
+
+		for (BookLoans loans : loansList) {
+			if (loans.getBookId() == bookList.get(bookSelect - 1).getBookId()
+					&& loans.getCardNo() == borrower.getBorrowerCardNumber()) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public void addReturnCopie() {
-		
+
 	}
+
 	public void removeReturnCopie() {
-		
+
 	}
-	
-	
+
 	public void getAccount(int cardNo) {
 
 		borrower.setBorrowerCardNumber(cardNo);

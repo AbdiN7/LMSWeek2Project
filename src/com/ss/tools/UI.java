@@ -58,14 +58,20 @@ public class UI {
 	 */
 	public void librarianMenu() {
 		System.out.print(ConsoleColors.CYAN_BOLD);
-		System.out.println("                     |____________________                                       |");
-		System.out.println("                     |___Libararian Menu__|                                      |");
-		System.out.println("                     |____________________|                                      |");
-		System.out.println("                     |[ 1) Enter Branch  ]|                                      |");
-		System.out.println("                     |                    |                                      |");
-		System.out.println("                     |[ 2) Quite to Prev ]|                                      |");
-		System.out.println("                     |____________________|                                      |");
-		System.out.print("                     |Input->");
+		System.out.println(" ________________________________________________________________________________");
+		System.out.println("|________________________________________________________________________________| ");
+		System.out.println("| __      __  ______  ______  ______  ______  __  ______  __   __                |");
+		System.out.println("|/\\ \\    /\\ \\/\\  == \\/\\  == \\/\\  __ \\/\\  == \\/\\ \\/\\  __ \\/\\ \"-.\\ \\               |");
+		System.out.println("|\\ \\ \\___\\ \\ \\ \\  __<\\ \\  __<\\ \\  __ \\ \\  __<\\ \\ \\ \\  __ \\ \\ \\-.  \\              |");
+		System.out.println("| \\ \\_____\\ \\_\\ \\_____\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\\\\"\\_\\             |");
+		System.out.println("|  \\/_____/\\/_/\\/_____/\\/_/ /_/\\/_/\\/_/\\/_/ /_/\\/_/\\/_/\\/_/\\/_/ \\/_/             |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("| "+ConsoleColors.RED_BACKGROUND+"[1) Enter Branch you Manage ]"+ConsoleColors.RESET+ConsoleColors.CYAN_BOLD+"                                                  |");
+		System.out.println("| "+ConsoleColors.RED_BACKGROUND+"[2) Quit to Previous  ]"+ConsoleColors.RESET+ConsoleColors.CYAN_BOLD+"                                Version 0.0.1e (C) 1985 |");
+		System.out.println("|________________________________________________________________________________|");
+		System.out.print("|Input->");
 	}
 	
 	public void librarianBranchMenu() {
@@ -136,10 +142,27 @@ public class UI {
 	}
 	public void borrowerMenuOneBottome() {
 		System.out.println("|________________________________________________________________________________|");
+		
 	}
 	
 	
-	
+	public void adminMainMenu() {
+		System.out.print(ConsoleColors.GREEN_BOLD);
+		System.out.println(" ________________________________________________________________________________");
+		System.out.println("|________________________________________________________________________________| ");
+		System.out.println("| ______   _____    __    __   __   __   __                                      |");
+		System.out.println("|/\\  __ \\ /\\  __-. /\\ \"-./  \\ /\\ \\ /\\ \"-.\\ \\                         |");
+		System.out.println("|\\ \\  __ \\\\ \\ \\/\\ \\\\ \\ \\-./\\ \\\\ \\ \\\\ \\ \\-.  \\                |");
+		System.out.println("| \\ \\_\\ \\_\\\\ \\____- \\ \\_\\ \\ \\_\\\\ \\_\\\\ \\_\\\\\"\\_\\            |");
+		System.out.println("|  \\/_/\\/_/ \\/____/  \\/_/  \\/_/ \\/_/ \\/_/ \\/_/                           |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[1) Enter Branch you Manage ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                     |");
+		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[2) Quit to Previous  ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                Version 0.0.1e (C) 1985 |");
+		System.out.println("|________________________________________________________________________________|");
+		System.out.print("|Input->");
+	}
 	
 	
 	

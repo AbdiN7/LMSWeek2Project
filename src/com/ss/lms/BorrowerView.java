@@ -65,15 +65,17 @@ public class BorrowerView {
 									if (idInput == bookChoice) {
 										break;
 									} else if (idInput != bookChoice) {
-										// if(BorrowerService.loansList.get().getCardNo() ==
-										// BorrowerService.borrower.getBorrowerCardNumber() )
 										System.out.println(BorrowerService.bookList.size());
-										borrowerService.checkOutBook(
-												BorrowerService.bookList.get(idInput - 1).getBookId(),
-												BorrowerService.libraryList.get(branchId - 1).getBranchId(),
-												BorrowerService.borrower.getBorrowerCardNumber(), time);
-										System.out.println("You just checked out "
-												+ BorrowerService.bookList.get(idInput - 1).getBookTitle() + "!");
+										if (borrowerService.alreadyCheckedOut(idInput)) {
+											System.out.println("Were sorry you have this book checked out already :(");
+										} else {
+											borrowerService.checkOutBook(
+													BorrowerService.bookList.get(idInput - 1).getBookId(),
+													BorrowerService.libraryList.get(branchId - 1).getBranchId(),
+													BorrowerService.borrower.getBorrowerCardNumber(), time);
+											System.out.println("You just checked out "
+													+ BorrowerService.bookList.get(idInput - 1).getBookTitle() + "!");
+										}
 									}
 								}
 
@@ -84,9 +86,8 @@ public class BorrowerView {
 					} else if (input == '2') {
 
 						System.out.println("Return a book why don't you");
-						BorrowerService.loansList.forEach(n -> System.out.println(n.getBookId()));
+						BorrowerService.loansList.forEach(n -> System.out.println());
 						int test = Main.userInput.nextInt();
-						System.out.println(BorrowerService.borrower.getBorrowerCardNumber() + " " + BorrowerService.loansList.get(test-1).getBookId()+" "+BorrowerService.libraryList.get(1).getBranchName());
 						borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
 								BorrowerService.loansList.get(test - 1).getBookId(),
 								BorrowerService.libraryList.get(0).getBranchId());
