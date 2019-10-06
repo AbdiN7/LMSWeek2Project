@@ -1,4 +1,4 @@
-package com.ss.test;
+package com.ss.lms.test;
 
 import com.ss.lms.dao.DataConnector;
 import com.ss.lms.model.Author;
@@ -54,8 +54,12 @@ class AdminServicesTest {
             currAuth = rs2.getString("authorName");
             if (currAuth.equals(myAuthor.getAuthorName())) {
                 System.out.println("Author's Updated Name: " + myAuthor.getAuthorName());
+                break;
             }
 
+        }
+        if (!currAuth.equals(myAuthor.getAuthorName())) {
+            fail("Author failed to update");
         }
         // Delete Test
         myAuthor.setAuthorId(authID);
