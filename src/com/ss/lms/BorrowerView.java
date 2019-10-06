@@ -17,26 +17,20 @@ public class BorrowerView {
 		BorrowerService borrowerService = new BorrowerService();
 
 		borrowerService.OpenConnection();
-		// ok
 		char input = 0;
 		boolean idFound = false;
 		int idInput = 0;
 		int branch = 0;
+		int count = 0;
 		LocalDateTime time = LocalDateTime.now();
 
 		while (true) {
-
-			// borrowerService.checkInBook(467, 1, 1);
-
-			// borrowerService.checkOutBook(1, 1, 467, obj);
-			// borrowerService.getBooks(1);
 
 			Main.ui.borrowerLogIn();
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
 			borrowerService.getLibrary();
 			idFound = borrowerService.checkLoginID(idInput);
-			System.out.println(idFound);
 			if (idFound) {
 				borrowerService.getAccount(idInput);
 				borrowerService.getLoans();
@@ -65,7 +59,6 @@ public class BorrowerView {
 									if (idInput == bookChoice) {
 										break;
 									} else if (idInput != bookChoice) {
-										System.out.println(BorrowerService.bookList.size());
 										if (borrowerService.alreadyCheckedOut(idInput)) {
 											System.out.println("Were sorry you have this book checked out already :(");
 										} else {
@@ -86,11 +79,15 @@ public class BorrowerView {
 					} else if (input == '2') {
 
 						System.out.println("Return a book why don't you");
-						BorrowerService.loansList.forEach(n -> System.out.println());
+						count = borrowerService.displayBooks(BorrowerService.borrower.getBorrowerCardNumber());
 						int test = Main.userInput.nextInt();
-						borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
-								BorrowerService.loansList.get(test - 1).getBookId(),
-								BorrowerService.libraryList.get(0).getBranchId());
+						if (count != test) {
+							borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
+									BorrowerService.loansList.get(test - 1).getBookId(),
+									BorrowerService.libraryList.get(0).getBranchId());
+						} else {
+							System.out.println(" ");
+						}
 
 					} else if (input == '3') {
 						idInput = -1;

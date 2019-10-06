@@ -43,6 +43,17 @@ public class BorrowerService {
 
 		return false;
 	}
+	
+	public int displayBooks(int cardNo) {
+		int count = 0;
+		try {
+			count = borrowerDao.readLoanBooks(cardNo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 	public void addReturnCopie() {
 
