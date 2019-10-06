@@ -21,7 +21,7 @@ public class AdminPublisherDao implements AdminDao<Publisher, Connection> {
         st.setString(1, String.valueOf(publisher.getPublisherId()));
         st.setString(2, publisher.getPublisherName());
         st.setString(3, publisher.getPublisherAddress());
-        st.setString(4, publisher.getPublisherPhoneNumber());
+        st.setString(4, publisher.getPublisherPhone());
         st.executeUpdate();
     }
 
@@ -42,7 +42,7 @@ public class AdminPublisherDao implements AdminDao<Publisher, Connection> {
                 "WHERE publisherId = ?");
         st.setString(1, publisher.getPublisherName());
         st.setString(2, publisher.getPublisherAddress());
-        st.setString(3, publisher.getPublisherPhoneNumber());
+        st.setString(3, publisher.getPublisherPhone());
         st.setString(4, String.valueOf(pubId));
         st.executeUpdate();
 

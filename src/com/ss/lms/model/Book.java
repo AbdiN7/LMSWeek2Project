@@ -5,11 +5,16 @@ public class Book {
     protected String bookTitle;
     private Author bookAuthor;
     private Publisher bookPublisher;
-
-    public Book() {
+    
+    public Book() {};
+    public Book(Integer Id, String title, Author author, Publisher publisher) {
+    	bookId = Id;
+    	bookTitle = title;
+    	bookAuthor = author;
+    	bookPublisher = publisher;
     	
     }
-    
+
     public Integer getBookId() {
         return bookId;
     }
