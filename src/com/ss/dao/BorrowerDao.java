@@ -1,16 +1,16 @@
 package com.ss.dao;
 
+import com.ss.lms.dao.DataConnector;
+
 import java.sql.*;
 
 public class BorrowerDao {
-	
+	DataConnector dataConnector = new DataConnector();
 	Connection connection = null;
 	
 	
-	public void openConnection() throws ClassNotFoundException, SQLException {
-			System.out.println("Loading Please Wait.....");
-			Class.forName("com.mysql.jdbc.Driver");  
-			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/library?verifyServerCertificate=false&useSSL=true&requireSSL=true","root","pass");  
+	public void openConnection() throws SQLException {
+			connection = dataConnector.getCurrConnection();
 	}
 	
 	public void closeConnection() throws SQLException {

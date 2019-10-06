@@ -57,7 +57,7 @@ public class UI {
 	public void librarianMenu() {
 		System.out.print(ConsoleColors.CYAN_BOLD);
 		System.out.println("                     |____________________                                       |");
-		System.out.println("                     |___Libararian Menu__|                                      |");
+		System.out.println("                     |___Librarian Menu__|                                      |");
 		System.out.println("                     |____________________|                                      |");
 		System.out.println("                     |[ 1) Enter Branch  ]|                                      |");
 		System.out.println("                     |                    |                                      |");

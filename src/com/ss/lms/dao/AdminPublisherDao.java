@@ -2,6 +2,7 @@ package com.ss.lms.dao;
 
 import com.ss.lms.model.Borrower;
 import com.ss.lms.model.Publisher;
+import com.ss.lms.secret.GenerateID;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,8 @@ public class AdminPublisherDao implements AdminDao<Publisher, Connection> {
 
     @Override
     public void add(Publisher publisher, Connection connection) throws SQLException {
+        GenerateID genId = new GenerateID();
+        publisher.setPublisherId(genId.randomID());
         PreparedStatement st = connection.prepareStatement("insert into tbl_publisher (publisherId, publisherName, " +
                 "publisherAddress, publisherPhone)" +
                 "VALUES (?,?,?,?)");

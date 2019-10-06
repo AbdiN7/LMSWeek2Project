@@ -1,6 +1,7 @@
 package com.ss.lms.dao;
 
 import com.ss.lms.model.Borrower;
+import com.ss.lms.secret.GenerateID;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,8 @@ public class AdminBorrowerDao implements AdminDao<Borrower, Connection> {
 
     @Override
     public void add(Borrower borrower, Connection connection) throws SQLException {
+        GenerateID generateID = new GenerateID();
+        borrower.setBorrowerCardNumber(generateID.randomID());
         PreparedStatement st = connection.prepareStatement("insert into tbl_borrower (cardNo, name, address, phone)" +
                 "VALUES (?,?,?,?)");
         st.setString(1, String.valueOf(borrower.getBorrowerCardNumber()));
