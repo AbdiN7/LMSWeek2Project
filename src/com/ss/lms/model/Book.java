@@ -6,6 +6,10 @@ public class Book {
     private Author bookAuthor;
     private Publisher bookPublisher;
 
+    public Book() {
+    	
+    }
+    
     public Integer getBookId() {
         return bookId;
     }

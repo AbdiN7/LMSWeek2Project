@@ -2,32 +2,28 @@ package com.ss.lms.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.ss.lms.model.Book;
+import com.ss.lms.model.LibraryBook;
 
 public class LibraryPOJO {
 
 	private int branchId;
 	private String branchName;
 	private String branchAddress;
-	private List<Book> books;
-	private List<Integer> noOfCopies;
-	
+	private List<LibraryBook> books;
+	//books and noOfCopies will be added at the same time to keep the indexes the same
 	
 	public LibraryPOJO() {
 		branchId = 0;
 		branchName = "";
 		branchAddress = "";
 		books = new ArrayList<>();
-		noOfCopies = new ArrayList<>();
 	}
 	
-	public LibraryPOJO(int id, String name, String address, List<Book> book, List<Integer> copies) {
+	public LibraryPOJO(int id, String name, String address, List<LibraryBook> book) {
 		branchId = id;
 		branchName = name;
 		branchAddress = address;
 		books = book;
-		noOfCopies = copies;
 	}
 	
 	public int getBranchId() {
@@ -48,16 +44,10 @@ public class LibraryPOJO {
 	public void setBranchAddress(String branchAddress) {
 		this.branchAddress = branchAddress;
 	}	
-	public List<Book> getBooks() {
+	public List<LibraryBook> getBooks() {
 		return books;
 	}
-	public void setBookTitles(List<Book> book) {
+	public void setBooks(List<LibraryBook> book) {
 		this.books = book;
-	}	
-	public int getNoOfCopies(int index) {
-		return noOfCopies.get(index);
-	}
-	public void setNoOfCopies(int index, int copies) {
-		this.noOfCopies.set(index, copies);
 	}	
 }
