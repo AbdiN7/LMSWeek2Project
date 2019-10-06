@@ -12,8 +12,7 @@ public class AdminBorrowerDao implements AdminDao<Borrower, Connection> {
 
     @Override
     public void add(Borrower borrower, Connection connection) throws SQLException {
-        GenerateID generateID = new GenerateID();
-        borrower.setBorrowerCardNumber(generateID.randomID());
+
         PreparedStatement st = connection.prepareStatement("insert into tbl_borrower (cardNo, name, address, phone)" +
                 "VALUES (?,?,?,?)");
         st.setString(1, String.valueOf(borrower.getBorrowerCardNumber()));

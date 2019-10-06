@@ -1,6 +1,5 @@
 package com.ss.lms;
 
-import com.ss.lms.dao.DataConnector;
 
 import com.ss.lms.model.Publisher;
 import com.ss.lms.secret.GenerateID;

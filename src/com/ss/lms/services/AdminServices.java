@@ -112,6 +112,8 @@ public class AdminServices {
     {
         try{
             authorDao.delete(author, connection);
+            author.setAuthorId(null);
+            author.setAuthorName(null);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -13,8 +13,7 @@ public class AdminPublisherDao implements AdminDao<Publisher, Connection> {
 
     @Override
     public void add(Publisher publisher, Connection connection) throws SQLException {
-        GenerateID genId = new GenerateID();
-        publisher.setPublisherId(genId.randomID());
+
         PreparedStatement st = connection.prepareStatement("insert into tbl_publisher (publisherId, publisherName, " +
                 "publisherAddress, publisherPhone)" +
                 "VALUES (?,?,?,?)");
