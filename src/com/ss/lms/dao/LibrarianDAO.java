@@ -35,7 +35,6 @@ public class LibrarianDAO {
 			branch.setBranchName(rs.getString(2));
 			branches.add(branch);
 		}
-		connection.close();
 		return branches;
 	}
 	
@@ -45,8 +44,10 @@ public class LibrarianDAO {
 		state.setString(1, String.valueOf(branchId));
 		ResultSet rs = state.executeQuery();
 		
+		rs.next();
 		//create Library Object using branch info
 		LibraryPOJO branch = new LibraryPOJO();
+		branch.setBranchId(branchId);
 		branch.setBranchName(rs.getString(1));
 		branch.setBranchAddress(rs.getString(2));
 		
@@ -83,7 +84,7 @@ public class LibrarianDAO {
 	public void addCopies(int bookId, int branchId, int newNoOfCopies, Boolean none, Connection connection) throws SQLException{
 
 		//update the number of copies of a given book a given branch has
-		PreparedStatement state = connection.prepareStatement(none ? "insert into tbl_book_copies (newNoOfCopies, branchId, bookId) values (?, ?, ?)"
+		PreparedStatement state = connection.prepareStatement(none ? "insert into tbl_book_copies (noOfCopies, branchId, bookId) values (?, ?, ?)"
 				: "update tbl_book_copies set noOfCopies = ? where branchId = ? and bookId = ?");
 		state.setString(1, String.valueOf(newNoOfCopies));
 		state.setString(2, String.valueOf(branchId));

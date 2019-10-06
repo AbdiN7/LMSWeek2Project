@@ -7,7 +7,7 @@ public class Url {
         ServerCredential mySecret = new ServerCredential();
         return ("jdbc:mysql://localhost:3306/library?" + "user=" +
                 mySecret.getServerUser() + "&password="+
-                mySecret.getServerPWord()+"&serverTimezone=EST5EDT");
+                mySecret.getServerPWord());
 
     }
 }
