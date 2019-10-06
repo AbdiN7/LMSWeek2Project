@@ -1,8 +1,8 @@
 package com.ss.lms.model;
 
 public class Book {
-    private Integer bookId;
-    private String bookTitle;
+    protected Integer bookId;
+    protected String bookTitle;
     private Author bookAuthor;
     private Publisher bookPublisher;
 
