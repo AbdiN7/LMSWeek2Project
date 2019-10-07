@@ -225,6 +225,7 @@ public class AdminServices {
     public void deleteAuthor(Author author, Connection connection)
     {
         try{
+<<<<<<< HEAD
             System.out.println("What is the ID of the Author You Wish to DELETE");
             author.setAuthorId(scan.nextInt());
             scan.nextLine();
@@ -237,6 +238,11 @@ public class AdminServices {
                 System.out.println("Deleting author.....");
                 authorDao.delete(author,connection);
             }
+=======
+            authorDao.delete(author, connection);
+            author.setAuthorId(null);
+            author.setAuthorName(null);
+>>>>>>> admin
         } catch (SQLException e) {
             e.printStackTrace();
         }
