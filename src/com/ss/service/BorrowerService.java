@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.ss.dao.BorrowerDao;
+import com.ss.lms.dao.BorrowerDao;
 import com.ss.lms.model.Author;
 import com.ss.lms.model.Book;
 import com.ss.lms.model.BookLoans;

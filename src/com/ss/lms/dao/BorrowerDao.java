@@ -1,4 +1,4 @@
-package com.ss.dao;
+package com.ss.lms.dao;
 
 import java.sql.*;
 
