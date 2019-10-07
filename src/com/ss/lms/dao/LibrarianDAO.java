@@ -35,7 +35,6 @@ public class LibrarianDAO {
 			branch.setBranchName(rs.getString(2));
 			branches.add(branch);
 		}
-		connection.close();
 		return branches;
 	}
 	
@@ -47,6 +46,7 @@ public class LibrarianDAO {
 		
 		//create Library Object using branch info
 		LibraryPOJO branch = new LibraryPOJO();
+		branch.setBranchId(branchId);
 		branch.setBranchName(rs.getString(1));
 		branch.setBranchAddress(rs.getString(2));
 		
