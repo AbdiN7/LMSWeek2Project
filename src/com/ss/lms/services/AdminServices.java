@@ -29,6 +29,7 @@ public class AdminServices {
 
         try{
             int bookID = book.getBookId();
+            getValidInput();
             boolean isFound = valid.validateBook(bookID,connection);
             if(!isFound)
             {
@@ -51,6 +52,7 @@ public class AdminServices {
           
             author.setAuthorId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateAuthor(author.getAuthorId(),connection);
             if(!isValid)
             {
@@ -59,7 +61,7 @@ public class AdminServices {
             }
             else{
                 System.out.println("Enter the Publisher's ID");
-              
+                getValidInput();
                 publisher.setPublisherId(scan.nextInt());
                 isValid = valid.validatePublisher(publisher.getPublisherId(),connection);
                 if(!isValid)
@@ -86,6 +88,7 @@ public class AdminServices {
     {
         try{
             int bookID = book.getBookId();
+            getValidInput();
             boolean isFound = valid.validateBook(bookID,connection);
             if(!isFound)
             {
@@ -112,6 +115,7 @@ public class AdminServices {
             System.out.println("What is the Card Number for the Borrower You wish to Edit");
             borrower.setBorrowerCardNumber(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateBorrower(borrower.getBorrowerCardNumber(),connection);
             if(!isValid)
             {
@@ -138,6 +142,7 @@ public class AdminServices {
             System.out.println("What is the Card Number for the Borrower You wish to Edit");
             borrower.setBorrowerCardNumber(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateBorrower(borrower.getBorrowerCardNumber(),connection);
             if(!isValid)
             {
@@ -177,6 +182,7 @@ public class AdminServices {
             ValidationService valid = new ValidationService();
             System.out.println("What is the Card Number of the user you wish to extend the due date: ");
             borrower.setBorrowerCardNumber(scanner.nextInt());
+            getValidInput();
             boolean isValid = valid.validCardLoan(borrower.getBorrowerCardNumber(),connection);
             if (!isValid)
             {
@@ -187,6 +193,7 @@ public class AdminServices {
             else {
                 System.out.println("Input the Book ID you wish to update the date for: ");
                 book.setBookId(scanner.nextInt());
+                getValidInput();
                 isValid = valid.validBookLoan(book.getBookId(), connection);
                 if (!isValid)
                 {
@@ -234,6 +241,7 @@ public class AdminServices {
             System.out.println("What is the ID of the Author You Wish to DELETE");
             author.setAuthorId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateAuthor(author.getAuthorId(),connection);
             if(!isValid)
             {
@@ -256,6 +264,7 @@ public class AdminServices {
             System.out.println("Enter the ID of the Author You wish to Update");
             author.setAuthorId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateAuthor(author.getAuthorId(),connection);
             if(!isValid)
             {
@@ -287,9 +296,10 @@ public class AdminServices {
     public void deletePublisher(Publisher publisher, Connection connection)
     {
         try{
-            System.out.println("What is the ID of the Author You Wish to DELETE");
+            System.out.println("What is the ID of the Publisher You Wish to DELETE");
             publisher.setPublisherId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateAuthor(publisher.getPublisherId(),connection);
             if(!isValid)
             {
@@ -308,9 +318,10 @@ public class AdminServices {
     public void updatePublisher(Publisher publisher, Connection connection)
     {
         try{
-            System.out.println("What is the ID of the Author You Wish to DELETE");
+            System.out.println("What is the ID of the Publisher You Wish to update");
             publisher.setPublisherId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateAuthor(publisher.getPublisherId(),connection);
             if(!isValid)
             {
@@ -354,6 +365,7 @@ public class AdminServices {
             System.out.println("What is the ID of the Branch You Wish to DELETE");
             library.setBranchId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateLibBranch(library.getBranchId(),connection);
             if(!isValid)
             {
@@ -375,6 +387,7 @@ public class AdminServices {
             System.out.println("What is the ID of the Branch You Wish to update");
             library.setBranchId(scan.nextInt());
             scan.nextLine();
+            getValidInput();
             boolean isValid = valid.validateLibBranch(library.getBranchId(),connection);
             if(!isValid)
             {

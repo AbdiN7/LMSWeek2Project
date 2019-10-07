@@ -29,7 +29,7 @@ public class BorrowerDao {
 	public void openConnection() throws ClassNotFoundException, SQLException {
 		System.out.println("Loading Please Wait.....");
 		connection = dc.getCurrConnection();
-		
+
 	}
 
 	public void closeConnection() throws SQLException {

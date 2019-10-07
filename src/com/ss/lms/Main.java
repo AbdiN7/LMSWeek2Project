@@ -10,9 +10,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 
-
 public class Main {
-
 
 	public static UI ui = new UI();
 	static BorrowerView borrowerView = new BorrowerView();

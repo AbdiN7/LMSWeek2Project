@@ -2,7 +2,7 @@ package com.ss.lms;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-
+import java.util.InputMismatchException;
 
 import com.ss.lms.Main;
 import com.ss.lms.services.BorrowerService;
@@ -22,14 +22,17 @@ public class BorrowerView {
 		int count = 0;
 		int logInAttempts = 10;
 		LocalDateTime time = LocalDateTime.now();
-
+		
+		//Start of borrower loop
 		while (true) {
 
+			//Check the id and login
 			Main.ui.borrowerLogIn();
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
 			borrowerService.getLibrary();
 			idFound = borrowerService.checkLoginID(idInput);
+			
 			if (idFound) {
 				borrowerService.getAccount(idInput);
 				borrowerService.getLoans();
@@ -43,7 +46,11 @@ public class BorrowerView {
 							Main.ui.borrowerMenuOne();
 							int branchId = borrowerService.readBranch();
 							Main.ui.borrowerMenuOneBottome();
-							idInput = Main.userInput.nextInt();
+							try {
+								idInput = Main.userInput.nextInt();
+							} catch (InputMismatchException e) {
+								System.out.println("Not a valid input!");
+							}
 							branch = idInput;
 							BorrowerService.bookList.clear();
 							if (branch != branchId)
@@ -57,7 +64,11 @@ public class BorrowerView {
 								while (true) {
 									int bookChoice = borrowerService
 											.readBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
-									idInput = Main.userInput.nextInt();
+									try {
+										idInput = Main.userInput.nextInt();
+									} catch (InputMismatchException e) {
+										System.out.println("Not a valid input!");
+									}
 									if (idInput == bookChoice) {
 										break;
 									} else if (idInput != bookChoice) {
@@ -83,16 +94,21 @@ public class BorrowerView {
 
 						System.out.println("Return a book why don't you");
 						count = borrowerService.displayBooks(BorrowerService.borrower.getBorrowerCardNumber());
-						int test = Main.userInput.nextInt();
+						int index = 0;
+						try {
+							index = Main.userInput.nextInt();
+						} catch (InputMismatchException e) {
+							System.out.println("Not a valid input!");
+						}
 
-						if (count != test) {
+						if (count != index) {
 							borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
-									BorrowerService.loansList.get(test - 1).getBookId(),
-									BorrowerService.loansList.get(test - 1).getBranchId());
+									BorrowerService.loansList.get(index - 1).getBookId(),
+									BorrowerService.loansList.get(index - 1).getBranchId());
 							System.out.println(BorrowerService.borrower.getBorrowerCardNumber() + " "
-									+ BorrowerService.loansList.get(test - 1).getBookId() + " "
-									+ BorrowerService.loansList.get(test - 1).getBranchId());
-							borrowerService.addReturnCopie(BorrowerService.loansList.get(test - 1).getBookId());
+									+ BorrowerService.loansList.get(index - 1).getBookId() + " "
+									+ BorrowerService.loansList.get(index - 1).getBranchId());
+							borrowerService.addReturnCopie(BorrowerService.loansList.get(index - 1).getBookId());
 
 						} else {
 							System.out.println(" ");
@@ -116,11 +132,10 @@ public class BorrowerView {
 				break;
 			}
 			logInAttempts--;
-			if(logInAttempts == 0) {
+			if (logInAttempts == 0) {
 				break;
-			}
-			else {
-				System.out.println("You have "+ logInAttempts+ " Login attempts left!");
+			} else {
+				System.out.println("You have " + logInAttempts + " Login attempts left!");
 			}
 			borrowerService.destroyList();
 
