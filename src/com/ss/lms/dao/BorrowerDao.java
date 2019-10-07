@@ -16,6 +16,7 @@ import com.ss.lms.services.BorrowerService;
 
 public class BorrowerDao {
 
+	DataConnector connectDatabase = new DataConnector();
 	Connection connection = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
@@ -31,6 +32,7 @@ public class BorrowerDao {
 		connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/library?verifyServerCertificate=false&useSSL=true&requireSSL=true", "root",
 				"pass");
+		
 	}
 
 	public void closeConnection() throws SQLException {
