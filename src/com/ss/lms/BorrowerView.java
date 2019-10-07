@@ -20,6 +20,7 @@ public class BorrowerView {
 		int idInput = 0;
 		int branch = 0;
 		int count = 0;
+		int logInAttempts = 10;
 		LocalDateTime time = LocalDateTime.now();
 
 		while (true) {
@@ -113,6 +114,13 @@ public class BorrowerView {
 			}
 			if (idInput == -1) {
 				break;
+			}
+			logInAttempts--;
+			if(logInAttempts == 0) {
+				break;
+			}
+			else {
+				System.out.println("YOu have "+ logInAttempts+ " Login attempts left!");
 			}
 			borrowerService.destroyList();
 
