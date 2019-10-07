@@ -1,4 +1,4 @@
-package com.ss.service;
+package com.ss.lms.service;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

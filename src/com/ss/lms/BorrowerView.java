@@ -7,7 +7,7 @@ import com.ss.lms.Main;
 import com.ss.lms.dao.BorrowerDao;
 import com.ss.lms.model.BookLoans;
 import com.ss.lms.model.Borrower;
-import com.ss.service.BorrowerService;
+import com.ss.lms.service.BorrowerService;
 import com.ss.tools.ConsoleColors;
 
 public class BorrowerView {

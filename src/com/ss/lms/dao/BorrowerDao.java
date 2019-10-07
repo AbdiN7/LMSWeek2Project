@@ -12,7 +12,7 @@ import com.ss.lms.model.BookLoans;
 import com.ss.lms.model.Borrower;
 import com.ss.lms.model.LibraryBranch;
 import com.ss.lms.model.Publisher;
-import com.ss.service.BorrowerService;
+import com.ss.lms.service.BorrowerService;
 
 public class BorrowerDao {
 

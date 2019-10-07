@@ -13,7 +13,6 @@ import com.ss.lms.model.LibraryPOJO;
 public class LibrarianService {
 	private LibrarianDAO lib = new LibrarianDAO();
 	
-	
 	public void libraryMain(Scanner scan) {
 		try {
 			Connection conn = lib.openConnection();
@@ -24,7 +23,6 @@ public class LibrarianService {
 					libraryTwo(scan, conn);
 				}else {
 					//close connection and return to main menu
-					System.out.print("fuck");
 					lib.closeConnection(conn);
 					break;
 				}
@@ -73,11 +71,10 @@ public class LibrarianService {
 	
 	public void libraryThree(LibraryPOJO branch, Scanner scan, Connection conn) {
 option:	while(true) {
-	
 			System.out.println("1) Update the details of the library");
 			System.out.println("2) Add copies of Book to the Branch");
 			System.out.println("3) Quit to previous");
-			switch(validate(3,scan)) {
+			switch(1) {
 			case 1:
 				libraryEdit(branch, scan, conn);
 				break;

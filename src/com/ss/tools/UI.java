@@ -1,6 +1,6 @@
 package com.ss.tools;
 
-import com.ss.service.*;
+import com.ss.lms.service.*;
 
 public class UI {
 
