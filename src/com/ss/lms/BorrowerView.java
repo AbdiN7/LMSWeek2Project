@@ -120,7 +120,7 @@ public class BorrowerView {
 				break;
 			}
 			else {
-				System.out.println("YOu have "+ logInAttempts+ " Login attempts left!");
+				System.out.println("You have "+ logInAttempts+ " Login attempts left!");
 			}
 			borrowerService.destroyList();
 

@@ -8,6 +8,7 @@ import com.ss.lms.services.ValidationService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -20,7 +21,7 @@ public class AdminMenu {
     ValidationService valid = new ValidationService();
 
 
-    public void runMainMenu(Connection connection) throws SQLException {
+    public void runMainMenu(Connection connection) throws SQLException,InputMismatchException {
         view.printMainMenu();
         int choice = getInput();
         switch (choice)
@@ -50,7 +51,7 @@ public class AdminMenu {
                 break;
         }
     }
-    public void runBookMenu(Connection connection) throws SQLException {
+    public void runBookMenu(Connection connection) throws SQLException,InputMismatchException {
         Scanner scan = new Scanner(System.in);
         Book book = new Book();
 
@@ -66,6 +67,7 @@ public class AdminMenu {
             case 2:
 
                 System.out.println("Enter the ID of the book you want to edit");
+                getValidInput();
                 book.setBookId(scan.nextInt());
                 admin.updateBook(book,connection);
                 runBookMenu(connection);
@@ -73,6 +75,7 @@ public class AdminMenu {
             case 3:
 
                 System.out.println(("Enter the ID of the book you want to delete"));
+                getValidInput();
                 book.setBookId(scan.nextInt());
                 admin.deleteBook(book,connection);
                 runBookMenu(connection);
@@ -283,7 +286,15 @@ public class AdminMenu {
         borrower.setBorrowerCardNumber(genId.randomID());
         return borrower;
     }
-
+    public void getValidInput()
+    {
+    	   while(!scan.hasNextInt()) {
+           	
+           	System.out.println("Not a Valid Number");
+           	scan.next();
+           }
+    		System.out.print("Re-Enter a valid input-> ");
+    }
     private int getInput()
     {
         Scanner kbInput = new Scanner(System.in);

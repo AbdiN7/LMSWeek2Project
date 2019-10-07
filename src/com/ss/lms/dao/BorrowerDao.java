@@ -16,7 +16,7 @@ import com.ss.lms.services.BorrowerService;
 
 public class BorrowerDao {
 
-	DataConnector connectDatabase = new DataConnector();
+	DataConnector dc = new DataConnector();
 	Connection connection = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
@@ -28,10 +28,7 @@ public class BorrowerDao {
 	 */
 	public void openConnection() throws ClassNotFoundException, SQLException {
 		System.out.println("Loading Please Wait.....");
-		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/library?verifyServerCertificate=false&useSSL=true&requireSSL=true", "root",
-				"pass");
+		connection = dc.getCurrConnection();
 		
 	}
 

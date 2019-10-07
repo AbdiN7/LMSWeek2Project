@@ -1,10 +1,12 @@
 package com.ss.lms.services;
 
+import com.ss.lms.AdminMenu;
 import com.ss.lms.dao.*;
 import com.ss.lms.model.*;
 import com.ss.lms.secret.GenerateID;
 
 import java.sql.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.SortedMap;
 
@@ -21,6 +23,7 @@ public class AdminServices {
     //////// BOOK SERVICES /////////
     //////// BOOK SERVICES /////////
     //////// BOOK SERVICES /////////
+	
     public void deleteBook(Book book, Connection connection)
     {
 
@@ -43,8 +46,9 @@ public class AdminServices {
         try{
             Author author = new Author();
             Publisher publisher = new Publisher();
-
+            
             System.out.println("Enter the Author's ID");
+          
             author.setAuthorId(scan.nextInt());
             scan.nextLine();
             boolean isValid = valid.validateAuthor(author.getAuthorId(),connection);
@@ -55,6 +59,7 @@ public class AdminServices {
             }
             else{
                 System.out.println("Enter the Publisher's ID");
+              
                 publisher.setPublisherId(scan.nextInt());
                 isValid = valid.validatePublisher(publisher.getPublisherId(),connection);
                 if(!isValid)
@@ -387,5 +392,14 @@ public class AdminServices {
         {
             e.printStackTrace();
         }
+    }
+    public void getValidInput()
+    {
+    	   while(!scan.hasNextInt()) {
+           	
+           	System.out.println("Not a Valid Number");
+           	scan.next();
+           }
+    		System.out.print("Re-Enter a valid input-> ");
     }
 }
