@@ -2,13 +2,10 @@ package com.ss.lms;
 
 import com.ss.lms.dao.DataConnector;
 
-import com.ss.lms.model.Publisher;
-import com.ss.lms.secret.GenerateID;
-import com.ss.lms.services.AdminServices;
+
 import com.ss.lms.services.LibrarianService;
 import com.ss.tools.*;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 

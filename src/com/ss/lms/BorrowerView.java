@@ -3,10 +3,8 @@ package com.ss.lms;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
-import com.ss.lms.dao.BorrowerDao;
+
 import com.ss.lms.Main;
-import com.ss.lms.model.BookLoans;
-import com.ss.lms.model.Borrower;
 import com.ss.lms.services.BorrowerService;
 import com.ss.tools.ConsoleColors;
 
@@ -44,11 +42,11 @@ public class BorrowerView {
 							Main.ui.borrowerMenuOne();
 							int branchId = borrowerService.readBranch();
 							Main.ui.borrowerMenuOneBottome();
-							idInput = Main.userInput.nextInt();			
+							idInput = Main.userInput.nextInt();
 							branch = idInput;
 							BorrowerService.bookList.clear();
-							if(branch!=branchId)
-							borrowerService.getBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
+							if (branch != branchId)
+								borrowerService.getBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
 							if (idInput == branchId) {
 								borrowerService.destroyList();
 								borrowerService.getLoans();
@@ -71,10 +69,11 @@ public class BorrowerView {
 													BorrowerService.borrower.getBorrowerCardNumber(), time);
 											System.out.println("You just checked out "
 													+ BorrowerService.bookList.get(idInput - 1).getBookTitle() + "!");
-											borrowerService.removeReturnCopie(BorrowerService.bookList.get(idInput - 1).getBookId());
+											borrowerService.removeReturnCopie(
+													BorrowerService.bookList.get(idInput - 1).getBookId());
 										}
 									}
-								}//book check out loop
+								} // book check out loop
 							}
 
 						} // End of Menu Option 1
@@ -84,20 +83,21 @@ public class BorrowerView {
 						System.out.println("Return a book why don't you");
 						count = borrowerService.displayBooks(BorrowerService.borrower.getBorrowerCardNumber());
 						int test = Main.userInput.nextInt();
-						
+
 						if (count != test) {
 							borrowerService.checkInBook(BorrowerService.borrower.getBorrowerCardNumber(),
 									BorrowerService.loansList.get(test - 1).getBookId(),
 									BorrowerService.loansList.get(test - 1).getBranchId());
-							System.out.println(BorrowerService.borrower.getBorrowerCardNumber()+" "+BorrowerService.loansList.get(test-1).getBookId()+" "+BorrowerService.loansList.get(test-1).getBranchId());
+							System.out.println(BorrowerService.borrower.getBorrowerCardNumber() + " "
+									+ BorrowerService.loansList.get(test - 1).getBookId() + " "
+									+ BorrowerService.loansList.get(test - 1).getBranchId());
 							borrowerService.addReturnCopie(BorrowerService.loansList.get(test - 1).getBookId());
-							
+
 						} else {
 							System.out.println(" ");
 						}
-						borrowerService.killLoans();
+						borrowerService.destroyOnlyLoans();
 						borrowerService.getLoans();
-						
 
 					} else if (input == '3') {
 						idInput = -1;

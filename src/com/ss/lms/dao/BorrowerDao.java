@@ -98,8 +98,7 @@ public class BorrowerDao {
 		return BorrowerService.loansList;
 	}
 
-	
-	//Disaply the branches that you have in the database
+	// Disaply the branches that you have in the database
 	public int readBranch() throws SQLException {
 		int count = 1;
 		stmt = connection.prepareStatement("select * from tbl_library_branch");
@@ -116,8 +115,7 @@ public class BorrowerDao {
 		return count;
 	}
 
-	
-	//List of the library branches 
+	// List of the library branches
 	public List<LibraryBranch> libraryList() throws SQLException {
 		stmt = connection.prepareStatement("select * from tbl_library_branch;");
 		rs = stmt.executeQuery();
@@ -131,10 +129,7 @@ public class BorrowerDao {
 
 	}
 
-	
-
-	
-	//Check the card No if it's in the database
+	// Check the card No if it's in the database
 	public boolean checkCardNo(int borrowerCardNo) throws SQLException {
 		System.out.println("Checking ID against our records....");
 		PreparedStatement stmt = connection.prepareStatement("select tbl_borrower.cardNo from tbl_borrower");
@@ -148,8 +143,7 @@ public class BorrowerDao {
 
 	}
 
-	
-	//get the books that are needed to be in the list
+	// get the books that are needed to be in the list
 	public int readBooks(int branchId) throws SQLException {
 		stmt = connection.prepareStatement("Select tbl_book.title, tbl_author.authorName\r\n"
 				+ "from tbl_library_branch join tbl_book_copies on tbl_library_branch.branchId = tbl_book_copies.branchId\r\n"
@@ -169,8 +163,7 @@ public class BorrowerDao {
 		return count;
 	}
 
-	
-	//Check out books with this function
+	// Check out books with this function
 	public void checkOutBook(int bookId, int branchId, int cardNo, LocalDateTime obj) throws SQLException {
 		PreparedStatement stmt = connection.prepareStatement("insert into tbl_book_loans values(?,?,?,?,?);");
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -183,7 +176,7 @@ public class BorrowerDao {
 
 	}
 
-	//Return books with this one
+	// Return books with this one
 	public void checkInBook(int cardNo, int bookId, int branchId) throws SQLException {
 		PreparedStatement stmt = connection.prepareStatement(
 				"delete from tbl_book_loans where tbl_book_loans.cardNo = (?) and tbl_book_loans.bookId = (?)\r\n"
@@ -197,7 +190,7 @@ public class BorrowerDao {
 
 	}
 
-	//Read in the loans of the current user
+	// Read in the loans of the current user
 	public int readLoanBooks(int cardNo) throws SQLException {
 		stmt = connection.prepareStatement(
 				"select tbl_book.title, tbl_book_loans.dateOut, tbl_book_loans.dueDate from tbl_book_loans\r\n"
@@ -214,19 +207,19 @@ public class BorrowerDao {
 		System.out.println(count + ") Quit to previous");
 		return count;
 	}
-	
+
 	public void addBook(int bookId) throws SQLException {
-		 stmt = connection.prepareStatement("update tbl_book_copies set noOfCopies = noOfCopies + 1\r\n" + 
-				"where tbl_book_copies.bookId = (?);");
-		 stmt.setInt(1, bookId);
-		 stmt.executeUpdate();
+		stmt = connection.prepareStatement(
+				"update tbl_book_copies set noOfCopies = noOfCopies + 1\r\n" + "where tbl_book_copies.bookId = (?);");
+		stmt.setInt(1, bookId);
+		stmt.executeUpdate();
 	}
-	
+
 	public void removeBook(int bookId) throws SQLException {
-		stmt = connection.prepareStatement("update tbl_book_copies set noOfCopies = noOfCopies - 1\r\n" + 
-				"where tbl_book_copies.bookId = (?);");
-		 stmt.setInt(1, bookId);
-		 stmt.executeUpdate();
+		stmt = connection.prepareStatement(
+				"update tbl_book_copies set noOfCopies = noOfCopies - 1\r\n" + "where tbl_book_copies.bookId = (?);");
+		stmt.setInt(1, bookId);
+		stmt.executeUpdate();
 	}
 
 }

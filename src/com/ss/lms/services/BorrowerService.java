@@ -1,7 +1,6 @@
 package com.ss.lms.services;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.ss.lms.dao.BorrowerDao;
@@ -30,7 +29,8 @@ public class BorrowerService {
 		loansList.clear();
 		libraryList.clear();
 	}
-	public void killLoans() {
+
+	public void destroyOnlyLoans() {
 		loansList.clear();
 	}
 
@@ -45,7 +45,7 @@ public class BorrowerService {
 
 		return false;
 	}
-	
+
 	public int displayBooks(int cardNo) {
 		int count = 0;
 		try {
@@ -84,11 +84,6 @@ public class BorrowerService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*
-		 * System.out.println(borrower.getBorrowerCardNumber() +
-		 * borrower.getBorrowerName()+ borrower.getBorrowerAddress()+
-		 * borrower.getBorrowerPhoneNumber());
-		 */
 	}
 
 	public void getLibrary() {
@@ -98,7 +93,7 @@ public class BorrowerService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//libraryList.forEach(n -> System.out.println(n));
+		// libraryList.forEach(n -> System.out.println(n));
 	}
 
 	public void getLoans() {
