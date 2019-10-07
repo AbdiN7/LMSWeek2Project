@@ -157,6 +157,7 @@ option:	while(true) {
 		while(true){
 			while(!scan.hasNextInt()){
 				scan.nextLine();
+				scan.nextLine();
 				System.out.println("Please only enter a number!");
 			}
 			int response = scan.nextInt();
@@ -167,7 +168,7 @@ option:	while(true) {
 			for(int x = 2; x<numberOfResponses; x++){
 			System.out.print(", " + x);
 			}	
-			System.out.print(" or " + numberOfResponses + "!");
+			System.out.println(" or " + numberOfResponses + "!");
 		}
 	}
 }
