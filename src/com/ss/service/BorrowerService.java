@@ -27,9 +27,11 @@ public class BorrowerService {
 	public static Book book = new Book();
 
 	public void destroyList() {
-		bookList.clear();
 		loansList.clear();
 		libraryList.clear();
+	}
+	public void killLoans() {
+		loansList.clear();
 	}
 
 	public boolean alreadyCheckedOut(int bookSelect) {
@@ -86,7 +88,7 @@ public class BorrowerService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		libraryList.forEach(n -> System.out.println(n));
+		//libraryList.forEach(n -> System.out.println(n));
 	}
 
 	public void getLoans() {
