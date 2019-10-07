@@ -8,11 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AdminAuthorDao implements AdminDao<Author, Connection > {
-    private GenerateID generateID = new GenerateID();
 
     @Override
     public void add(Author author, Connection connection) throws SQLException {
-        author.setAuthorId(generateID.randomID());
         PreparedStatement st = connection.prepareStatement("insert into tbl_author (authorId, authorName)" +
                 "VALUES (?,?)");
         st.setString(1, String.valueOf(author.getAuthorId()));
@@ -25,7 +23,6 @@ public class AdminAuthorDao implements AdminDao<Author, Connection > {
         PreparedStatement st = connection.prepareStatement("DELETE FROM tbl_author WHERE authorId = ?");
         st.setString(1, String.valueOf(author.getAuthorId()));
         st.executeUpdate();
-        connection.close();
     }
 
     @Override

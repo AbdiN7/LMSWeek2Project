@@ -8,12 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AdminBookDao implements AdminDao<Book, Connection> {
-    private GenerateID generateID = new GenerateID();
     @Override
     public void add(Book book, Connection connection) throws SQLException {
         int authId = book.getBookAuthor().getAuthorId();
         int pubId = book.getBookPublisher().getPublisherId();
-        book.setBookId(generateID.randomID());
 
         PreparedStatement st = connection.prepareStatement("insert into tbl_book (bookId,title,authId,pubId) "+
                 "VALUES (?,?,?,?)");

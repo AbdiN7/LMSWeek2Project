@@ -10,8 +10,7 @@ import java.sql.SQLException;
 public class AdminLibBranchDao implements AdminDao<LibraryPOJO, Connection> {
     @Override
     public void add(LibraryPOJO library, Connection connection) throws SQLException {
-        GenerateID generateID = new GenerateID();
-        library.setBranchId(generateID.randomID());
+
         PreparedStatement st = connection.prepareStatement("insert into tbl_library_branch (branchId, branchName,branchAddress)" +
                 " VALUES (?,?,?);");
         st.setString(1, String.valueOf(library.getBranchId()));

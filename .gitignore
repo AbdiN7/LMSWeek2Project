@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .classpath
 .project
 .idea
@@ -5,5 +6,11 @@
 <<<<<<< Updated upstream
 .idea/
 =======
+.idea
+>>>>>>> Stashed changes
+=======
+*.classpath
+*.project
+*.iml
 .idea
 >>>>>>> Stashed changes
