@@ -30,7 +30,6 @@ public class BorrowerView {
 			idInput = Main.userInput.nextInt();
 			Main.ui.borrowerMenuBottom();
 			borrowerService.getLibrary();
-			System.out.println("fuck");
 			idFound = borrowerService.checkLoginID(idInput);
 			if (idFound) {
 				borrowerService.getAccount(idInput);
@@ -50,7 +49,6 @@ public class BorrowerView {
 							BorrowerService.bookList.clear();
 							if(branch!=branchId)
 							borrowerService.getBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
-							BorrowerService.bookList.forEach(n->System.out.println(n.getBookTitle()));
 							if (idInput == branchId) {
 								borrowerService.destroyList();
 								borrowerService.getLoans();
@@ -58,8 +56,6 @@ public class BorrowerView {
 								break;
 							} else if (idInput != branchId) {
 								while (true) {
-									System.out.println(branch);
-									//borrowerService.getBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
 									int bookChoice = borrowerService
 											.readBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
 									idInput = Main.userInput.nextInt();
@@ -86,7 +82,6 @@ public class BorrowerView {
 
 						System.out.println("Return a book why don't you");
 						count = borrowerService.displayBooks(BorrowerService.borrower.getBorrowerCardNumber());
-						//BorrowerService.loansList.forEach(n->System.out.println(n.getBranchId()));
 						int test = Main.userInput.nextInt();
 						
 						if (count != test) {
