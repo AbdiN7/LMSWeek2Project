@@ -59,7 +59,6 @@ public class AdminMenu {
         switch (choice)
         {
             case 0:
-                runMainMenu(connection);
                 break;
             case 1:
                 runBookSubMenu(connection);
@@ -192,7 +191,6 @@ public class AdminMenu {
         switch (choice)
         {
             case 0:
-                runMainMenu(connection);
                 break;
             case 1:
                 borrower = borrowerDialog();
