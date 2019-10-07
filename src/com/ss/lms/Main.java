@@ -2,9 +2,6 @@ package com.ss.lms;
 
 
 import com.ss.lms.dao.DataConnector;
-import com.ss.lms.model.Publisher;
-import com.ss.lms.secret.GenerateID;
-import com.ss.lms.services.AdminServices;
 import com.ss.tools.*;
 
 import java.sql.Connection;
@@ -22,10 +19,11 @@ public class Main {
 	public static Scanner userInput = new Scanner(System.in);
 	
 	public static void main(String[] args) throws SQLException {
-		AdminMenu menu = new AdminMenu();
+//		AdminMenu menu = new AdminMenu();
 		DataConnector dataConnector = new DataConnector();
 		Connection connection = dataConnector.getCurrConnection();
-		menu.runMainMenu(connection);
+//		menu.runMainMenu(connection);
+
 		char input = ' ';
 
 		ui.mainMenuTop();

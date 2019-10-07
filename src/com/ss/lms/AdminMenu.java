@@ -1,7 +1,5 @@
 package com.ss.lms;
 
-import com.ss.lms.AdminView;
-import com.ss.lms.dao.DataConnector;
 import com.ss.lms.model.*;
 import com.ss.lms.secret.GenerateID;
 import com.ss.lms.services.AdminServices;

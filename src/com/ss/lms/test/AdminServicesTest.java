@@ -3,7 +3,6 @@ package com.ss.lms.test;
 import com.ss.lms.dao.DataConnector;
 import com.ss.lms.model.Author;
 import com.ss.lms.model.Book;
-import com.ss.lms.model.Publisher;
 import com.ss.lms.secret.GenerateID;
 import com.ss.lms.services.AdminServices;
 import org.junit.After;
