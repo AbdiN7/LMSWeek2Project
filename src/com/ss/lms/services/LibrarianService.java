@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.ss.lms.Main;
 import com.ss.lms.dao.LibrarianDAO;
 import com.ss.lms.model.LibraryBook;
 import com.ss.lms.model.LibraryPOJO;
@@ -17,8 +18,9 @@ public class LibrarianService {
 		try {
 			Connection conn = lib.openConnection();
 			while(true) {
-				System.out.println("1) Enter Branch you manage");
-				System.out.println("2) Quit to previous");
+				Main.ui.librarianMenu();
+				//System.out.println("1) Enter Branch you manage");
+			//	System.out.println("2) Quit to previous");
 				if(validate(2,scan) == 1) {
 					libraryTwo(scan, conn);
 				}else {
@@ -93,6 +95,7 @@ option:	while(true) {
 		System.out.println("You have chosen to update the Branch with Branch Id: " + branch.getBranchId() + " and Branch Name: " + branch.getBranchName());
 		System.out.println("Enter 'quit' at any prompt to cancel operation.");
 		System.out.println();
+		scan.nextLine();
 		//ask for name while checking for quit and N/A
 		System.out.println("Please enter new branch name or enter N/A for no change:");
 		String name = scan.nextLine();
@@ -152,9 +155,10 @@ option:	while(true) {
 	public int validate(int numberOfResponses, Scanner scan){
 		//only allows for the response to be between 1 and the number of allowed responses
 		while(true){
-			while(!scan.hasNextInt()){
-				scan.nextLine();
+			while(!scan.hasNextInt()) {
 				System.out.println("Please only enter a number!");
+				scan.nextLine();
+				scan.nextLine();
 			}
 			int response = scan.nextInt();
 			if(response > 0 && response <= numberOfResponses){
@@ -164,7 +168,7 @@ option:	while(true) {
 			for(int x = 2; x<numberOfResponses; x++){
 			System.out.print(", " + x);
 			}	
-			System.out.print(" or " + numberOfResponses + "!");
+			System.out.println(" or " + numberOfResponses + "!");
 		}
 	}
 }

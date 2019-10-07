@@ -44,6 +44,7 @@ public class LibrarianDAO {
 		state.setString(1, String.valueOf(branchId));
 		ResultSet rs = state.executeQuery();
 		
+		rs.next();
 		//create Library Object using branch info
 		LibraryPOJO branch = new LibraryPOJO();
 		branch.setBranchId(branchId);
