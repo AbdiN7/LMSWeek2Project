@@ -1,6 +1,6 @@
 package com.ss.lms.secret;
 
-public class ServerCred {
+public class ServerCredential {
 
     public String getServerPWord ()
     {

@@ -1,9 +1,11 @@
-package com.ss.lms.Model;
+package com.ss.lms.model;
 
 public class Publisher {
     private Integer publisherId;
     private String publisherName;
     private String publisherAddress;
+    private String publisherPhoneNumber;
+
 
     public Integer getPublisherId() {
         return publisherId;
@@ -28,4 +30,12 @@ public class Publisher {
     public void setPublisherAddress(String publisherAddress) {
         this.publisherAddress = publisherAddress;
     }
+    public String getPublisherPhoneNumber() {
+        return publisherPhoneNumber;
+    }
+
+    public void setPublisherPhoneNumber(String publisherPhoneNumber) {
+        this.publisherPhoneNumber = publisherPhoneNumber;
+    }
+
 }
