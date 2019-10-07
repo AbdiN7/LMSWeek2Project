@@ -74,7 +74,7 @@ option:	while(true) {
 			System.out.println("1) Update the details of the library");
 			System.out.println("2) Add copies of Book to the Branch");
 			System.out.println("3) Quit to previous");
-			switch(1) {
+			switch(validate(3, scan)) {
 			case 1:
 				libraryEdit(branch, scan, conn);
 				break;
