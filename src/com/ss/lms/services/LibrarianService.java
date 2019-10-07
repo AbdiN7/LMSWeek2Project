@@ -95,6 +95,7 @@ option:	while(true) {
 		System.out.println("You have chosen to update the Branch with Branch Id: " + branch.getBranchId() + " and Branch Name: " + branch.getBranchName());
 		System.out.println("Enter 'quit' at any prompt to cancel operation.");
 		System.out.println();
+		scan.nextLine();
 		//ask for name while checking for quit and N/A
 		System.out.println("Please enter new branch name or enter N/A for no change:");
 		String name = scan.nextLine();
