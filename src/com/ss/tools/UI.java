@@ -1,6 +1,7 @@
 package com.ss.tools;
 
-import com.ss.lms.service.*;
+import com.ss.lms.services.*;
+import com.ss.lms.services.BorrowerService;
 
 public class UI {
 
