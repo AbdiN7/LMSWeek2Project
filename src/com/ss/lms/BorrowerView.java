@@ -17,10 +17,7 @@ public class BorrowerView {
 		borrowerService.OpenConnection();
 		char input = 0;
 		boolean idFound = false;
-		int idInput = 0;
-		int branch = 0;
-		int count = 0;
-		int logInAttempts = 10;
+		int idInput = 0, branch = 0, count = 0, logInAttempts = 10;
 		LocalDateTime time = LocalDateTime.now();
 		
 		//Start of borrower loop
@@ -42,19 +39,25 @@ public class BorrowerView {
 					Main.ui.borrowerMenuBottom();
 
 					if (input == '1') {
+						
 						while (true) {
 							Main.ui.borrowerMenuOne();
 							int branchId = borrowerService.readBranch();
 							Main.ui.borrowerMenuOneBottome();
+							
 							try {
 								idInput = Main.userInput.nextInt();
 							} catch (InputMismatchException e) {
 								System.out.println("Not a valid input!");
 							}
+							
 							branch = idInput;
 							BorrowerService.bookList.clear();
-							if (branch != branchId)
+							
+							if (branch != branchId) {
 								borrowerService.getBooks(BorrowerService.libraryList.get(branch - 1).getBranchId());
+							}
+							
 							if (idInput == branchId) {
 								borrowerService.destroyList();
 								borrowerService.getLoans();

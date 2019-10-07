@@ -122,7 +122,6 @@ public class BorrowerService {
 		try {
 			borrowerDao.checkOutBook(bookId, branchId, cardNo, obj);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("|");
 			System.out.println("| You have already have checked out that book!");
 			System.out.println("|______________________________________________");
