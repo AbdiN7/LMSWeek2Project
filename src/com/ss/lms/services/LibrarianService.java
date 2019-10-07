@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.ss.lms.Main;
 import com.ss.lms.dao.LibrarianDAO;
 import com.ss.lms.model.LibraryBook;
 import com.ss.lms.model.LibraryPOJO;
@@ -17,8 +18,9 @@ public class LibrarianService {
 		try {
 			Connection conn = lib.openConnection();
 			while(true) {
-				System.out.println("1) Enter Branch you manage");
-				System.out.println("2) Quit to previous");
+				Main.ui.librarianMenu();
+				//System.out.println("1) Enter Branch you manage");
+			//	System.out.println("2) Quit to previous");
 				if(validate(2,scan) == 1) {
 					libraryTwo(scan, conn);
 				}else {

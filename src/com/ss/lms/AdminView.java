@@ -21,13 +21,14 @@ public class AdminView {
     }
     public void printMainMenu()
     {
-        System.out.println("---------Welcome to Admin menu--------");
-        System.out.println("1) Go to Book Menu");
-        System.out.println("2) Go to Author Menu");
-        System.out.println("3) Go to Publisher Menu");
-        System.out.println("4) Go to Borrower Menu");
-        System.out.println("5) Go to Library Branch Menu");
-        System.out.println("\n0) exit");
+    	Main.ui.adminMainMenu();
+        //System.out.println("---------Welcome to Admin menu--------");
+        //System.out.println("1) Go to Book Menu");
+        //System.out.println("2) Go to Author Menu");
+        //System.out.println("3) Go to Publisher Menu");
+        //System.out.println("4) Go to Borrower Menu");
+       // System.out.println("5) Go to Library Branch Menu");
+        //System.out.println("\n0) exit");
 
     }
     public void printBookMenu()

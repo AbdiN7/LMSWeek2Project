@@ -57,12 +57,22 @@ public class BorrowerService {
 		return count;
 	}
 
-	public void addReturnCopie() {
-
+	public void addReturnCopie(int bookId) {
+		try {
+			borrowerDao.addBook(bookId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void removeReturnCopie() {
-
+	public void removeReturnCopie(int bookId) {
+		try {
+			borrowerDao.removeBook(bookId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void getAccount(int cardNo) {

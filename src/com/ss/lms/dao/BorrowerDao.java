@@ -132,12 +132,6 @@ public class BorrowerDao {
 	}
 
 	
-	
-	public void selectBranch(int choice) throws SQLException {
-		PreparedStatement stmt = connection.prepareStatement("select * from tbl_libary_branch");
-		ResultSet rs = stmt.executeQuery();
-
-	}
 
 	
 	//Check the card No if it's in the database
@@ -219,6 +213,20 @@ public class BorrowerDao {
 		}
 		System.out.println(count + ") Quit to previous");
 		return count;
+	}
+	
+	public void addBook(int bookId) throws SQLException {
+		 stmt = connection.prepareStatement("update tbl_book_copies set noOfCopies = noOfCopies + 1\r\n" + 
+				"where tbl_book_copies.bookId = (?);");
+		 stmt.setInt(1, bookId);
+		 stmt.executeUpdate();
+	}
+	
+	public void removeBook(int bookId) throws SQLException {
+		stmt = connection.prepareStatement("update tbl_book_copies set noOfCopies = noOfCopies - 1\r\n" + 
+				"where tbl_book_copies.bookId = (?);");
+		 stmt.setInt(1, bookId);
+		 stmt.executeUpdate();
 	}
 
 }

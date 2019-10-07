@@ -75,30 +75,6 @@ public class UI {
 		System.out.print("|Input->");
 	}
 	
-	public void librarianBranchMenu() {
-		System.out.println("                                          |______________________________________|");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |                                      | ");
-		System.out.println("                                          |______________________________________| ");
-		System.out.print("                                          |Input->");
-	}
 	
 	public void librarianBranchMenuBottom() {
 		System.out.println("\n                                          |______________________________________| "+ConsoleColors.RESET);
@@ -152,15 +128,19 @@ public class UI {
 		System.out.println(" ________________________________________________________________________________");
 		System.out.println("|________________________________________________________________________________| ");
 		System.out.println("| ______   _____    __    __   __   __   __                                      |");
-		System.out.println("|/\\  __ \\ /\\  __-. /\\ \"-./  \\ /\\ \\ /\\ \"-.\\ \\                         |");
-		System.out.println("|\\ \\  __ \\\\ \\ \\/\\ \\\\ \\ \\-./\\ \\\\ \\ \\\\ \\ \\-.  \\                |");
-		System.out.println("| \\ \\_\\ \\_\\\\ \\____- \\ \\_\\ \\ \\_\\\\ \\_\\\\ \\_\\\\\"\\_\\            |");
-		System.out.println("|  \\/_/\\/_/ \\/____/  \\/_/  \\/_/ \\/_/ \\/_/ \\/_/                           |");
+		System.out.println("|/\\  __ \\ /\\  __-. /\\ \"-./  \\ /\\ \\ /\\ \"-.\\ \\                                     |");
+		System.out.println("|\\ \\  __ \\\\ \\ \\/\\ \\\\ \\ \\-./\\ \\\\ \\ \\\\ \\ \\-.  \\                                    |");
+		System.out.println("| \\ \\_\\ \\_\\\\ \\____- \\ \\_\\ \\ \\_\\\\ \\_\\\\ \\_\\\\\"\\_\\                                   |");
+		System.out.println("|  \\/_/\\/_/ \\/____/  \\/_/  \\/_/ \\/_/ \\/_/ \\/_/                                   |");
 		System.out.println("|                                                                                |");
 		System.out.println("|                                                                                |");
 		System.out.println("|                                                                                |");
-		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[1) Enter Branch you Manage ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                     |");
-		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[2) Quit to Previous  ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                Version 0.0.1e (C) 1985 |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[1) Go to Book Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                          |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[2) Go to Author Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                        |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[3) Go to Publisher Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                     |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[4) Go to Borrower Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                      |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[5) Go to Library Branch Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[0) Quit to Main Menu ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                Version 0.0.1e (C) 1985 |");
 		System.out.println("|________________________________________________________________________________|");
 		System.out.print("|Input->");
 	}

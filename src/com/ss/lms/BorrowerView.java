@@ -71,6 +71,7 @@ public class BorrowerView {
 													BorrowerService.borrower.getBorrowerCardNumber(), time);
 											System.out.println("You just checked out "
 													+ BorrowerService.bookList.get(idInput - 1).getBookTitle() + "!");
+											borrowerService.removeReturnCopie(BorrowerService.bookList.get(idInput - 1).getBookId());
 										}
 									}
 								}//book check out loop
@@ -89,7 +90,7 @@ public class BorrowerView {
 									BorrowerService.loansList.get(test - 1).getBookId(),
 									BorrowerService.loansList.get(test - 1).getBranchId());
 							System.out.println(BorrowerService.borrower.getBorrowerCardNumber()+" "+BorrowerService.loansList.get(test-1).getBookId()+" "+BorrowerService.loansList.get(test-1).getBranchId());
-							
+							borrowerService.addReturnCopie(BorrowerService.loansList.get(test - 1).getBookId());
 							
 						} else {
 							System.out.println(" ");
