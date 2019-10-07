@@ -1,5 +1,8 @@
 package com.ss.tools;
 
+import com.ss.lms.services.*;
+import com.ss.lms.services.BorrowerService;
+
 public class UI {
 
 	public void mainMenuTop() {
@@ -56,14 +59,20 @@ public class UI {
 	 */
 	public void librarianMenu() {
 		System.out.print(ConsoleColors.CYAN_BOLD);
-		System.out.println("                     |____________________                                       |");
-		System.out.println("                     |___Librarian Menu__|                                      |");
-		System.out.println("                     |____________________|                                      |");
-		System.out.println("                     |[ 1) Enter Branch  ]|                                      |");
-		System.out.println("                     |                    |                                      |");
-		System.out.println("                     |[ 2) Quite to Prev ]|                                      |");
-		System.out.println("                     |____________________|                                      |");
-		System.out.print("                     |Input->");
+		System.out.println(" ________________________________________________________________________________");
+		System.out.println("|________________________________________________________________________________| ");
+		System.out.println("| __      __  ______  ______  ______  ______  __  ______  __   __                |");
+		System.out.println("|/\\ \\    /\\ \\/\\  == \\/\\  == \\/\\  __ \\/\\  == \\/\\ \\/\\  __ \\/\\ \"-.\\ \\               |");
+		System.out.println("|\\ \\ \\___\\ \\ \\ \\  __<\\ \\  __<\\ \\  __ \\ \\  __<\\ \\ \\ \\  __ \\ \\ \\-.  \\              |");
+		System.out.println("| \\ \\_____\\ \\_\\ \\_____\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\ \\_\\\\\"\\_\\             |");
+		System.out.println("|  \\/_____/\\/_/\\/_____/\\/_/ /_/\\/_/\\/_/\\/_/ /_/\\/_/\\/_/\\/_/\\/_/ \\/_/             |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("| "+ConsoleColors.RED_BACKGROUND+"[1) Enter Branch you Manage ]"+ConsoleColors.RESET+ConsoleColors.CYAN_BOLD+"                                                  |");
+		System.out.println("| "+ConsoleColors.RED_BACKGROUND+"[2) Quit to Previous  ]"+ConsoleColors.RESET+ConsoleColors.CYAN_BOLD+"                                Version 0.0.1e (C) 1985 |");
+		System.out.println("|________________________________________________________________________________|");
+		System.out.print("|Input->");
 	}
 	
 	public void librarianBranchMenu() {
@@ -112,18 +121,49 @@ public class UI {
 		System.out.println("| \\ \\_____\\\\ \\_____\\\\ \\_\\ \\_\\\\ \\_\\ \\_\\\\ \\_____\\\\ \\__/\".~\\_\\\\ \\_____\\\\ \\_\\ \\_\\    |");
 		System.out.println("|  \\/_____/ \\/_____/ \\/_/ /_/ \\/_/ /_/ \\/_____/ \\/_/   \\/_/ \\/_____/ \\/_/ /_/    |");
 		System.out.println("|                                                                                |");
-		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[1) Check out Book]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                       |");
-		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[2) Return a Book ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                       |");
-		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[3) Quit to Main  ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                              Version 0.0.1e (C) 1985  |");
+		System.out.println("|                                                                                |");
+		System.out.println( ConsoleColors.RESET+"| "+ConsoleColors.BLUE_BACKGROUND+"Account #|"+BorrowerService.borrower.getBorrowerCardNumber()
+		                   +" "+"Name:"+BorrowerService.borrower.getBorrowerName()+ConsoleColors.RESET+
+			           	   "                                                 |");
+		System.out.print(ConsoleColors.PURPLE_BOLD);
+		System.out.println("|                                                                                |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[1) Check out Book]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                            |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[2) Return a Book ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                                            |");
+		System.out.println("| "+ConsoleColors.BLUE_BACKGROUND_BRIGHT+"[3) Quit to Main  ]"+ConsoleColors.RESET+ConsoleColors.PURPLE_BOLD+"                                    Version 0.0.1e (C) 1985 |");
 		System.out.println("|________________________________________________________________________________|");
 		System.out.print("|Input->");
 	}
 	public void borrowerMenuBottom() {
-		System.out.println("|________________________________________________________________________________|"+ConsoleColors.RESET);
+		System.out.println("|________________________________________________________________________________|");
+	}
+	
+	public void borrowerMenuOne() {
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+	}
+	public void borrowerMenuOneBottome() {
+		System.out.println("|________________________________________________________________________________|");
+		
 	}
 	
 	
-	
+	public void adminMainMenu() {
+		System.out.print(ConsoleColors.GREEN_BOLD);
+		System.out.println(" ________________________________________________________________________________");
+		System.out.println("|________________________________________________________________________________| ");
+		System.out.println("| ______   _____    __    __   __   __   __                                      |");
+		System.out.println("|/\\  __ \\ /\\  __-. /\\ \"-./  \\ /\\ \\ /\\ \"-.\\ \\                         |");
+		System.out.println("|\\ \\  __ \\\\ \\ \\/\\ \\\\ \\ \\-./\\ \\\\ \\ \\\\ \\ \\-.  \\                |");
+		System.out.println("| \\ \\_\\ \\_\\\\ \\____- \\ \\_\\ \\ \\_\\\\ \\_\\\\ \\_\\\\\"\\_\\            |");
+		System.out.println("|  \\/_/\\/_/ \\/____/  \\/_/  \\/_/ \\/_/ \\/_/ \\/_/                           |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("|                                                                                |");
+		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[1) Enter Branch you Manage ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                                     |");
+		System.out.println("| "+ConsoleColors.YELLOW_BACKGROUND+"[2) Quit to Previous  ]"+ConsoleColors.RESET+ConsoleColors.GREEN_BOLD+"                                Version 0.0.1e (C) 1985 |");
+		System.out.println("|________________________________________________________________________________|");
+		System.out.print("|Input->");
+	}
 	
 	
 	

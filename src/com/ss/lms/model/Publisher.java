@@ -6,7 +6,17 @@ public class Publisher {
     private String publisherAddress;
     private String publisherPhoneNumber;
 
-
+    
+    public Publisher() {};
+    
+    public Publisher(Integer pubId, String pubName, String pubAddress, String pubPhone) {
+    	publisherId = pubId;
+    	publisherName = pubName;
+    	publisherAddress = pubAddress;
+    	publisherPhoneNumber = pubPhone;
+    }
+    
+    
     public Integer getPublisherId() {
         return publisherId;
     }
@@ -30,12 +40,12 @@ public class Publisher {
     public void setPublisherAddress(String publisherAddress) {
         this.publisherAddress = publisherAddress;
     }
-    public String getPublisherPhoneNumber() {
-        return publisherPhoneNumber;
-    }
 
-    public void setPublisherPhoneNumber(String publisherPhoneNumber) {
-        this.publisherPhoneNumber = publisherPhoneNumber;
-    }
+	public String getPublisherPhoneNumber() {
+		return publisherPhoneNumber;
+	}
 
+	public void setPublisherPhoneNumber(String publisherPhone) {
+		this.publisherPhoneNumber = publisherPhone;
+	}
 }
