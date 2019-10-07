@@ -4,7 +4,7 @@ public class ServerCredential {
 
     public String getServerPWord ()
     {
-        return "admin";
+        return "pass";
     }
      public String  getServerUser()
     {

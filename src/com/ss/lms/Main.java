@@ -20,6 +20,8 @@ public class Main {
 	static UI ui = new UI();
 	static BorrowerView borrowerView = new BorrowerView();
 	static LibrarianService libraryService = new LibrarianService();
+	static AdminMenu adminMenu = new AdminMenu();
+	static DataConnector connection = new DataConnector();
 	public static Scanner userInput = new Scanner(System.in);
 	
 	public static void main(String[] args) throws SQLException {
@@ -40,7 +42,7 @@ public class Main {
 				libraryService.libraryMain(userInput);
 
 			} else if (input == '2') {
-				ui.adminMainMenu();
+				adminMenu.runMainMenu(connection.getCurrConnection());
 			} else if (input == '3') {
 				java.awt.Toolkit.getDefaultToolkit().beep();  
 				borrowerView.menuBorrower();

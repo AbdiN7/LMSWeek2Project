@@ -27,7 +27,6 @@ public class AdminMenu {
         {
             case 0:
                 connection.close();
-                System.exit(1);
                 break;
             case 1:
                 runBookMenu(connection);
